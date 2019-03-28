@@ -62,9 +62,13 @@ $(function(){
         userName: logUserName.val(),
         userPassword: logUserPas.val()
     }, function(data) {
+        if (data.msg == "success") {
+            alert("成功登录！！");
+        } else {
+            alert("登录失败！！");
+        }
         console.log(data);
     });
     });
-    
 
 });
