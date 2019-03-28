@@ -1,0 +1,814 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>iPlay GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 下面这个是导入bootstrap的css文件，用的bootstrap框架，这个框架只需要在标签上面写上类名，他就会有相应的样式，不用自己手动一个一个的设置 -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' media="all" />
+<!-- //bootstrap -->
+
+<link href="css/dashboard.css" rel="stylesheet">
+<!-- 通用样式 -->
+<link href="css/style.css" rel='stylesheet' type='text/css' media="all" />
+<!-- //通用样式 -->
+
+<!-- pop-up-box，下面这两个是点击注册或者登陆的时候，弹出的窗口的css代码 -->  
+<link href="css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/popup.css" rel='stylesheet' type='text/css' media="all" />
+<!--//pop-up-box -->
+<script type="text/javascript"></script>
+</head>
+  <body>
+
+
+
+    <!-- 下面这个是头部模块 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+
+
+        <!-- 这个是头部模块左边的那个logo  -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- logo的图片就是下面这个-->
+          <a class="navbar-brand" href="index.html"><h1><img src="images/logo.png" alt="" /></h1></a>
+        </div>
+        <!-- //头部模块左边的那个logo -->
+
+
+        <!-- 这个是头部模块中间的搜索框、上传、注册、登陆模块 -->
+        <div id="navbar" class="navbar-collapse collapse">
+
+            <!-- 这个是搜索框模块 -->
+			<div class="top-search">
+				<form class="navbar-form navbar-right">
+					<input type="text" class="form-control" placeholder="Search...">
+					<!-- 下面这个就是那个提交按钮，那个放大镜一样的图片，就是这个的背景 -->
+					<input type="submit" value=" ">
+				</form>
+			</div>
+			<!-- //搜索框模块 -->
+
+			<!-- 这个是上传、注册、登陆模块 -->
+			<div class="header-top-right">
+
+				<!-- 注册模块，点击之后弹出窗口 -->
+				<div class="signin">
+				    <!-- 这个点击按钮之后的弹窗，依然是用锚点来做的，用锚点然后配合js来操作 -->
+					<a href="#" class="play-icon popup-with-zoom-anim register-btn">注册</a>
+
+					<!-- pop-up-box，下面这个是点击注册之后，弹出的窗口的那个html代码 -->
+					<div id="small-dialog2" class="mfp-hide">
+						<h3>Create Account</h3> 
+						<!-- 注册模块弹出的页面，左边模块 -->
+						<div class="social-sits">
+							<div class="facebook-button">
+								<a href="#">Connect with Facebook</a>
+							</div>
+							<div class="chrome-button">
+								<a href="#">Connect with Google</a>
+							</div>
+							<div class="button-bottom">
+							<!-- small-dialog是登陆弹出的那个窗口的锚点 -->
+								<p>Already have an account? <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Login</a></p>
+							</div>
+						</div>
+						<!-- //注册模块弹出的页面，左边模块 -->
+						<!-- 注册模块弹出的页面，右边模块，第一页 -->
+						<div class="signup">
+							<form>
+								<input type="text" class="email" placeholder="Mobile Number" maxlength="10" pattern="[1-9]{1}\d{9}" title="Enter a valid mobile number" />
+							</form>
+							<div class="continue-button">
+							    <!-- 这里是用锚点绑定的，点击之后就实现跳转，跳转到small-dialog3 -->
+								<a href="#small-dialog3" class="hvr-shutter-out-horizontal play-icon popup-with-zoom-anim">CONTINUE</a>
+							</div>
+						</div>
+						<div class="clearfix"> </div>
+						<!-- //注册模块弹出的页面，右边模块，第一页 -->
+					</div>
+					<!-- 注册模块弹出的页面，右边模块，第二页，由上面的continue点击之后，通过锚点跳转过来的 -->
+					<div id="small-dialog3" class="mfp-hide">
+						<h3>Create Account</h3> 
+						<div class="social-sits">
+							<div class="facebook-button">
+								<a href="#">Connect with Facebook</a>
+							</div>
+							<div class="chrome-button">
+								<a href="#">Connect with Google</a>
+							</div>
+							<div class="button-bottom">
+								<p>Already have an account? <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Login</a></p>
+							</div>
+						</div>
+						<div class="signup">
+							<form>
+								<input type="text" class="email" placeholder="Email" required="required" pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email"/>
+								<input type="password" placeholder="Password" required="required" pattern=".{6,}" title="Minimum 6 characters required" autocomplete="off" />
+								<input type="text" class="email" placeholder="Mobile Number" maxlength="10" pattern="[1-9]{1}\d{9}" title="Enter a valid mobile number" />
+								<input type="submit"  value="Sign Up"/>
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<!-- //注册模块弹出的页面，右边模块，第二页，由上面的continue点击之后，通过锚点跳转过来的 -->
+					<div id="small-dialog7" class="mfp-hide">
+						<h3>Create Account</h3> 
+						<div class="social-sits">
+							<div class="facebook-button">
+								<a href="#">Connect with Facebook</a>
+							</div>
+							<div class="chrome-button">
+								<a href="#">Connect with Google</a>
+							</div>
+							<div class="button-bottom">
+								<p>Already have an account? <a href="#small-dialog" class="play-icon popup-with-zoom-anim">Login</a></p>
+							</div>
+						</div>
+						<div class="signup">
+							<form action="upload.html">
+								<input type="text" class="email" placeholder="Email" required="required" pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?" title="Enter a valid email"/>
+								<input type="password" placeholder="Password" required="required" pattern=".{6,}" title="Minimum 6 characters required" autocomplete="off" />
+								<input type="submit"  value="Sign In"/>
+							</form>
+						</div>
+						<div class="clearfix"> </div>
+					</div>		
+					<div id="small-dialog4" class="mfp-hide">
+						<h3>Feedback</h3> 
+						<div class="feedback-grids">
+							<div class="feedback-grid">
+								<p>Suspendisse tristique magna ut urna pellentesque, ut egestas velit faucibus. Nullam mattis lectus ullamcorper dui dignissim, sit amet egestas orci ullamcorper.</p>
+							</div>
+							<div class="button-bottom">
+								<p><a href="#small-dialog" class="play-icon popup-with-zoom-anim">Sign in</a> to get started.</p>
+							</div>
+						</div>
+					</div>
+					<div id="small-dialog5" class="mfp-hide">
+						<h3>Help</h3> 
+							<div class="help-grid">
+								<p>Suspendisse tristique magna ut urna pellentesque, ut egestas velit faucibus. Nullam mattis lectus ullamcorper dui dignissim, sit amet egestas orci ullamcorper.</p>
+							</div>
+							<div class="help-grids">
+								<div class="help-button-bottom">
+									<p><a href="#small-dialog4" class="play-icon popup-with-zoom-anim">Feedback</a></p>
+								</div>
+								<div class="help-button-bottom">
+									<p><a href="#small-dialog6" class="play-icon popup-with-zoom-anim">Lorem ipsum dolor sit amet</a></p>
+								</div>
+								<div class="help-button-bottom">
+									<p><a href="#small-dialog6" class="play-icon popup-with-zoom-anim">Nunc vitae rutrum enim</a></p>
+								</div>
+								<div class="help-button-bottom">
+									<p><a href="#small-dialog6" class="play-icon popup-with-zoom-anim">Mauris at volutpat leo</a></p>
+								</div>
+								<div class="help-button-bottom">
+									<p><a href="#small-dialog6" class="play-icon popup-with-zoom-anim">Mauris vehicula rutrum velit</a></p>
+								</div>
+								<div class="help-button-bottom">
+									<p><a href="#small-dialog6" class="play-icon popup-with-zoom-anim">Aliquam eget ante non orci fac</a></p>
+								</div>
+							</div>
+					</div>
+					<div id="small-dialog6" class="mfp-hide">
+						<div class="video-information-text">
+							<h4>Video information & settings</h4>
+							<p>Suspendisse tristique magna ut urna pellentesque, ut egestas velit faucibus. Nullam mattis lectus ullamcorper dui dignissim, sit amet egestas orci ullamcorper.</p>
+							<ol>
+								<li>Nunc vitae rutrum enim. Mauris at volutpat leo. Vivamus dapibus mi ut elit fermentum tincidunt.</li>
+								<li>Nunc vitae rutrum enim. Mauris at volutpat leo. Vivamus dapibus mi ut elit fermentum tincidunt.</li>
+								<li>Nunc vitae rutrum enim. Mauris at volutpat leo. Vivamus dapibus mi ut elit fermentum tincidunt.</li>
+								<li>Nunc vitae rutrum enim. Mauris at volutpat leo. Vivamus dapibus mi ut elit fermentum tincidunt.</li>
+								<li>Nunc vitae rutrum enim. Mauris at volutpat leo. Vivamus dapibus mi ut elit fermentum tincidunt.</li>
+							</ol>
+						</div>
+					</div>	
+						<!-- //pop-up-box，下面这个是点击注册之后，弹出的窗口的那个html代码 -->
+				</div>
+				<!-- //注册模块 -->
+  
+                <!-- 登陆模块，点击之后弹出窗口 -->
+				<div class="signin">
+					<a href="#" class="play-icon popup-with-zoom-anim login-btn">登陆</a>
+
+					<!-- pop-up-box，下面这个是点击登陆之后，弹出的窗口的那个html代码 -->
+					<div id="small-dialog" class="mfp-hide">
+						<h3>Login</h3>
+						<!-- 登陆模块，左边模块 -->
+						<div class="social-sits">
+							<div class="facebook-button">
+								<a href="#">Connect with Facebook</a>
+							</div>
+							<div class="chrome-button">
+								<a href="#">Connect with Google</a>
+							</div>
+							<div class="button-bottom">
+								<p>New account? <a href="#small-dialog2" class="play-icon popup-with-zoom-anim">Signup</a></p>
+							</div>
+						</div>
+						<!-- //登陆模块，左边模块 -->
+						<!-- 登陆模块，右边模块 -->
+						<div class="signup">
+							<form>
+								<input type="text" class="email" placeholder="Enter email / mobile" required="required" pattern="([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?"/>
+								<input type="password" placeholder="Password" required="required" pattern=".{6,}" title="Minimum 6 characters required" autocomplete="off" />
+								<input type="submit"  value="LOGIN"/>
+							</form>
+							<div class="forgot">
+								<a href="#">Forgot password ?</a>
+							</div>
+						</div>
+						<!-- //登陆模块，右边模块 -->
+						<div class="clearfix"> </div>
+					</div>
+					<!-- //pop-up-box，下面这个是点击注册之后，弹出的窗口的那个html代码 -->
+				</div>
+				<!-- //登陆模块 -->
+                
+                <!-- 用户名按钮 -->
+				<a href="#" class="user-name play-icon popup-with-zoom-anim">rock</a>
+				<!-- //用户名按钮 -->
+				<div class="clearfix"> </div>
+			</div>
+			<!-- //上传、注册、登陆模块 -->
+        </div>
+		<div class="clearfix"> </div>
+		<!-- //头部模块中间的搜索框、上传、注册、登陆模块 -->
+      </div>
+    </nav>
+    <!-- //头部模块 -->
+	
+
+
+	<!-- 下面这个是主体的左边侧边栏模块 -->
+    <div class="col-sm-3 col-md-2 sidebar">
+
+        <!-- 这个就是左边侧边栏了 -->
+		<div class="drop-navigation drop-navigation">
+
+		  <!-- 这个是左边侧边栏上面菜单模块，前面的小图标用的是bootstrap的字体图标，包括后面那个:before都是bootstrap的字体图标的用法 -->
+		  <ul class="nav nav-sidebar left-side-nav">
+			<li class="active"><a href="#" class="home-icon"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+			<li><a href="#" class="User-icon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User</a></li>
+			<li><a href="#" class="upload-icon"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>upload</a></li>
+			<li><a href="#" class="upload-icon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>userMag</a></li>
+			<li><a href="#" class="upload-icon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>vdoMag</a></li>
+			<li><a href="#" class="upload-icon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>comMag</a></li>
+		  </ul>
+		  <!-- //左边侧边栏上面菜单模块 -->
+
+          <!-- 左边侧边栏下面的address模块 -->
+			<div class="side-bottom">
+				<div class="copyright">
+					<p>Copyright &copy; 2019. Created by myself.</p>
+				</div>
+			</div>
+			<!-- //左边侧边栏下面的address模块 -->
+		</div>
+		<!-- //左边侧边栏 -->
+    </div>
+    <!-- //主体的左边侧边栏模块 -->
+
+
+
+    <!-- 这个是页面的主体模块，数据库拉出来的电影那些就都在这里 -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main sec">
+        <!-- 这个是主体模块的显示电影模块 -->
+		<div class="main-grids">
+
+		    <!-- 这个是页面主体模块最上面那部分，recent videos -->
+			<div class="top-grids">
+				<div class="recommended-info">
+					<h3>All Videos</h3>
+				</div>
+				<!-- recent videos模块，第一个电影 -->
+				<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+					<div class="resent-grid-img recommended-grid-img">
+						<a href="#"><img src="images/c2.jpg" alt="" /></a>
+						<div class="time">
+							<p>3:04</p>
+						</div>
+						<div class="clck">
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="resent-grid-info recommended-grid-info">
+						<h3><a href="#" class="title title-info">Pellentesque vitae pulvinar tortor nullam interdum metus a imperdiet</a></h3>
+						<ul>
+							<li><p class="author author-info"><a href="#" class="author">me</a></p></li>
+							<li class="right-list"><p class="views views-info">10000000 views</p></li>
+						</ul>
+					</div>
+				</div>
+				<!-- //recent videos模块，第一个电影 -->
+				<!-- recent videos模块，第二个电影 -->
+				<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+					<div class="resent-grid-img recommended-grid-img">
+						<a href="#"><img src="images/c2.jpg" alt="" /></a>
+						<div class="time">
+							<p>7:23</p>
+						</div>
+						<div class="clck">
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="resent-grid-info recommended-grid-info">
+						<h3><a href="#" class="title title-info">Interdum pellentesque vitae pulvinar tortor nullam metus a imperdiet</a></h3>
+						<ul>
+							<li><p class="author author-info"><a href="#" class="author">me</a></p></li>
+							<li class="right-list"><p class="views views-info">10000000 views</p></li>
+						</ul>
+					</div>
+				</div>
+				<!-- recent videos模块，第二个电影 -->
+				<!-- recent videos模块，第三个电影 -->
+				<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+					<div class="resent-grid-img recommended-grid-img">
+						<a href="#"><img src="images/c2.jpg" alt="" /></a>
+						<div class="time">
+							<p>4:04</p>
+						</div>
+						<div class="clck">
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="resent-grid-info recommended-grid-info">
+						<h3><a href="#" class="title title-info">Nullam interdum metus a imperdiet pellentesque vitae pulvinar tortor</a></h3>
+						<ul>
+							<li><p class="author author-info"><a href="#" class="author">me</a></p></li>
+							<li class="right-list"><p class="views views-info">10000000 views</p></li>
+						</ul>
+					</div>
+				</div>
+				<!-- recent videos模块，第三个电影 -->
+								<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+					<div class="resent-grid-img recommended-grid-img">
+						<a href="#"><img src="images/c2.jpg" alt="" /></a>
+						<div class="time">
+							<p>3:04</p>
+						</div>
+						<div class="clck">
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="resent-grid-info recommended-grid-info">
+						<h3><a href="#" class="title title-info">Pellentesque vitae pulvinar tortor nullam interdum metus a imperdiet</a></h3>
+						<ul>
+							<li><p class="author author-info"><a href="#" class="author">me</a></p></li>
+							<li class="right-list"><p class="views views-info">10000000 views</p></li>
+						</ul>
+					</div>
+				</div>
+								<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+					<div class="resent-grid-img recommended-grid-img">
+						<a href="#"><img src="images/c2.jpg" alt="" /></a>
+						<div class="time">
+							<p>3:04</p>
+						</div>
+						<div class="clck">
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="resent-grid-info recommended-grid-info">
+						<h3><a href="#" class="title title-info">Pellentesque vitae pulvinar tortor nullam interdum metus a imperdiet</a></h3>
+						<ul>
+							<li><p class="author author-info"><a href="#" class="author">me</a></p></li>
+							<li class="right-list"><p class="views views-info">10000000 views</p></li>
+						</ul>
+					</div>
+				</div>
+								<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+					<div class="resent-grid-img recommended-grid-img">
+						<a href="#"><img src="images/c2.jpg" alt="" /></a>
+						<div class="time">
+							<p>3:04</p>
+						</div>
+						<div class="clck">
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="resent-grid-info recommended-grid-info">
+						<h3><a href="#" class="title title-info">Pellentesque vitae pulvinar tortor nullam interdum metus a imperdiet</a></h3>
+						<ul>
+							<li><p class="author author-info"><a href="#" class="author">me</a></p></li>
+							<li class="right-list"><p class="views views-info">10000000 views</p></li>
+						</ul>
+					</div>
+				</div>
+								<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+					<div class="resent-grid-img recommended-grid-img">
+						<a href="#"><img src="images/c2.jpg" alt="" /></a>
+						<div class="time">
+							<p>3:04</p>
+						</div>
+						<div class="clck">
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="resent-grid-info recommended-grid-info">
+						<h3><a href="#" class="title title-info">Pellentesque vitae pulvinar tortor nullam interdum metus a imperdiet</a></h3>
+						<ul>
+							<li><p class="author author-info"><a href="#" class="author">me</a></p></li>
+							<li class="right-list"><p class="views views-info">10000000 views</p></li>
+						</ul>
+					</div>
+				</div>
+								<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
+					<div class="resent-grid-img recommended-grid-img">
+						<a href="#"><img src="images/c2.jpg" alt="" /></a>
+						<div class="time">
+							<p>3:04</p>
+						</div>
+						<div class="clck">
+							<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+						</div>
+					</div>
+					<div class="resent-grid-info recommended-grid-info">
+						<h3><a href="#" class="title title-info">Pellentesque vitae pulvinar tortor nullam interdum metus a imperdiet</a></h3>
+						<ul>
+							<li><p class="author author-info"><a href="#" class="author">me</a></p></li>
+							<li class="right-list"><p class="views views-info">10000000 views</p></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+            <!-- //页面主体模块最上面那部分，recent videos -->
+
+
+		</div>
+	</div>
+	<div class="clearfix"> </div>
+	<!--  //页面的主体模块，数据库拉出来的电影那些就都在这里 -->
+    
+
+
+    <!-- 用户信息模块 -->
+    <div class="user sec">
+	    <div class="user-inf">
+	        <!-- 头像模块 -->
+	    	<div class="user-pic">
+	            <label for="user-pho">
+	    		<img width="200px" height="200px" src="images/c2.jpg">
+	    		</label>
+	    		<input id="user-pho" type="file">
+	    		<span class="change-inf">修改信息</span>
+	    	</div>
+	    	<!-- //头像模块 -->
+	    	<!-- 个人信息模块 -->
+	    	<div class="user-basi-inf">
+			    <div id="register2" class="user-box">
+			        <h3>个人信息</h3>
+		    		<input type="text" placeholder="请输入用户名：">
+		    		<br>
+		    		<input class="email-inp" type="email" placeholder="请输入email："><span class="per-email-wrg">*email格式不正确</span>
+		    		<br>
+		    		<input type="text" placeholder="请输入性别：">
+		    		<br>
+		    		<input type="text" placeholder="请输入所在地：">
+		    	</div>
+	    	</div>
+	    	<!-- //个人信息模块 -->
+
+	    	<!-- 密码修改模块 -->
+	    	<div class="change-psd">
+			    <div id="register2" class="psd-box">
+			        <h3>修改密码</h3>
+		    		<input type="password" placeholder="请输入密码："><span class="old-psd-wrg">*密码错误</span>
+		    		<br>
+		    		<input type="password" placeholder="请输入新密码：">
+		    		<br>
+		    		<input type="password" placeholder="请输入再次输入新密码："><span class="psd-wrg2">*输入不一致</span>
+		    	</div>
+	    	</div>
+	    	<!-- //密码修改模块 -->
+	    </div>
+	</div>
+    <!-- //用户信息模块 -->
+
+
+
+    <!-- 视频信息上传模块 -->
+    <div class="vdo sec">
+	    <div class="vdo-box">
+	        <!-- 视频上传模块 -->
+	    	<div class="vdo-upload">
+	            <span>
+	    		<img class="video-pic" width="200px" height="200px" src="images/c2.jpg">
+	    		</span>
+	    		<input id="video" type="file">
+	    		<label for="video" class="select-video">选择视频</label>
+	    		<span class="confirm-upload-all">确定上传</span>
+	    	</div>
+	    	<!-- //视频上传模块 -->
+	    	<!-- 视频首页模块 -->
+	    	<div class="vdo-poster-upload">
+			    <span>
+	    		<img class="poster-pic" width="200px" height="200px" src="images/c2.jpg">
+	    		</span>
+	    		<input id="video-poster" type="file">
+	    		<label for="video-poster" class="select-poster">选择视频首屏图片</label>
+	    	</div>
+	    	<!-- //视频首页模块 -->
+
+	    	<!-- 视频信息修改模块 -->
+	    	<div class="vdo-inf-change">
+			    <div class="vdo-change">
+			        <h3>视频信息修改</h3>
+		    		<input class="vdo-name" type="text" placeholder="请输入修改后的视频名字：">
+		    		<em>注：如果不提供，默认名字为文件名</em>
+		    	</div>
+	    	</div>
+	    	<!-- //视频信息修改模块 -->
+	    </div>
+	</div>
+    <!-- //视频信息上传模块 -->
+
+
+    
+<!-- 主评论模块 -->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 comment-box">
+		<div class="show-top-grids">
+		    
+			<div class="single-left">
+			    <!-- 这个是视频播放器模块-->
+				<div class="song">
+					<div class="song-info">
+						<h3>Etiam molestie nisl eget consequat pharetra</h3>	
+				    </div>
+				    <!-- 下面这个是视频信息 -->
+					<div class="video-grid">
+						<!-- <iframe src="#" allowfullscreen></iframe> -->
+						<video class='player'></video>
+					</div>
+					<!-- //视频信息 -->
+				</div>
+				<!-- //视频播放器模块 -->
+
+				<div class="clearfix"> </div>
+
+                <!-- 评论模块 -->
+				<div class="all-comments">
+				    <!-- 提交评论模块 -->
+					<div class="all-comments-info">
+						<div class="box">
+							<form>
+								<textarea placeholder="对这个电影有什么想法吗？写下来吧，和大家一起分享"></textarea>
+								<input type="submit" value="SEND">
+								<div class="clearfix"> </div>
+							</form>
+						</div>
+					</div>
+					<!-- //提交评论模块 -->
+
+					<!-- 所有评论模块 -->
+					<div class="media-grids">
+					    <!-- 一个media就是一个用户的评论 -->
+						<div class="media">
+							<h5>Tom Brown</h5>
+							<div class="media-body">
+								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
+							</div>
+							<span class="glyphicon glyphicon-remove delete-com"></span>
+						</div>
+						<!-- //一个media就是一个用户的评论 -->
+						<div class="media">
+							<h5>Mark Johnson</h5>
+							<div class="media-body">
+								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendreritsadadadsa</p>
+							</div>
+							<span class="glyphicon glyphicon-remove delete-com"></span>
+						</div>
+						<div class="media">
+							<h5>Steven Smith</h5>
+							<div class="media-body">
+								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
+							</div>
+							<span class="glyphicon glyphicon-remove delete-com"></span>
+						</div>
+						<div class="media">
+							<h5>Marry Johne</h5>
+							<div class="media-body">
+								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
+							</div>
+							<span class="glyphicon glyphicon-remove delete-com"></span>
+						</div>
+						<div class="media">
+							<h5>Mark Johnson</h5>
+							<div class="media-body">
+								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
+							</div>
+							<span class="glyphicon glyphicon-remove delete-com"></span>
+						</div>
+						<div class="media">
+							<h5>Mark Johnson</h5>
+							<div class="media-body">
+								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
+							</div>
+							<span class="glyphicon glyphicon-remove delete-com"></span>
+						</div>
+						<div class="media">
+							<h5>Peter Johnson</h5>
+							<div class="media-body">
+								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id ex pretium hendrerit</p>
+							</div>
+							<span class="glyphicon glyphicon-remove delete-com"></span>
+						</div>
+					</div>
+					<!-- //所有评论模块 -->
+				</div>
+				<!-- //评论模块 -->
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //主评论模块 -->
+
+
+
+    <!-- 用户信息管理模块 -->
+    <div class="user-mag-box sec">
+    	<div class="user-inf-mag">
+            <h3>用户信息管理</h3>
+            <div class="user-list">
+            <!-- 一组12个信息 -->
+				<div class="list-group ">
+				  <a href="#" class="list-group-item">Cras justo odio</a>
+				  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item">Morbi leo risus</a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+				  <a href="#" class="list-group-item">Vestibulum at eros</a>
+				  <a href="#" class="list-group-item">Cras justo odio</a>
+				  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item">Morbi leo risus</a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+				  <a href="#" class="list-group-item">Vestibulum at eros</a>
+				  <a href="#" class="list-group-item">Morbi leo risus</a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+				</div>
+			</div>
+			<!-- 三个按钮 -->
+			<ul class="pager">
+				<li><a href="#">上一页</a></li>
+				<li><a href="#">下一页</a></li>
+				<li><a href="#">删除</a></li>
+			</ul>
+			<!-- //三个按钮 -->
+    	</div>
+	</div>
+    <!-- //用户信息管理模块 -->
+
+
+
+    <!-- 视频管理模块 -->
+    <div class="vdo-mag-box sec">
+    	<div class="vdo-inf-mag">
+            <h3>视频管理</h3>
+            <div class="vdo-list">
+            <!-- 一组12个信息 -->
+				<div class="list-group ">
+				  <a href="#" class="list-group-item">Cras justo odio</a>
+				  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item">Morbi leo risus</a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+				  <a href="#" class="list-group-item">Vestibulum at eros</a>
+				  <a href="#" class="list-group-item">Cras justo odio</a>
+				  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item">Morbi leo risus</a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+				  <a href="#" class="list-group-item">Vestibulum at eros</a>
+				  <a href="#" class="list-group-item">Morbi leo risus</a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+				</div>
+			</div>
+			<!-- 三个按钮 -->
+			<ul class="pager">
+				<li><a href="#">上一页</a></li>
+				<li><a href="#">下一页</a></li>
+				<li><a href="#">删除</a></li>
+			</ul>
+			<!-- //三个按钮 -->
+    	</div>
+	</div>
+    <!-- //视频管理模块 -->
+
+
+
+    <!-- 评论管理模块 -->
+    <div class="com-mag-box sec">
+    	<div class="com-inf-mag">
+            <h3>评论管理</h3>
+            <!-- 这个切换的时候，是切换整个com-list中的所有内容 -->
+            <div class="com-list">
+            <!-- 一组12个信息 -->
+				<div class="list-group">
+				  <a href="#" class="list-group-item">Cras justo odio<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Dapibus ac facilisis in<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Morbi leo risus<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Vestibulum at eros<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Cras justo odio<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Dapibus ac facilisis in<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Morbi leo risus<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Vestibulum at eros<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Morbi leo risus<span>write by: rock, At video1</span></a>
+				  <a href="#" class="list-group-item">Porta ac consectetur ac<span>write by: rock, At video1</span></a>
+				</div>
+			</div>
+			<!-- 三个按钮 -->
+			<ul class="pager">
+				<li><a href="#">上一页</a></li>
+				<li><a href="#">下一页</a></li>
+				<li><a href="#">删除</a></li>
+			</ul>
+			<!-- //三个按钮 -->
+    	</div>
+	</div>
+    <!-- //评论管理模块 -->
+
+
+
+
+
+
+
+
+
+    <!-- 弹窗模块 -->
+    <div class="pop-up1">
+    	<h1>Login</h1>
+    	<div id="login2">
+    		<input type="text" placeholder="请输入用户名：">
+    		<br>
+    		<input type="password" placeholder="请输入密码：">
+    		<br>
+    		<!-- 判断checkbox是否被选中，是看它的checked属性，默认为false -->
+    		<label class="checkbox-lab">是否保存用户名</label><input class="checkbox" type="checkbox" checked>
+    	</div>
+    	<span class="login">
+    		login
+    	</span>
+    	<span class="register register1">
+    		register
+    	</span>
+    	<span class="close-it close-it1">
+    		close
+    	</span>
+    </div>
+    <div class="pop-up2">
+    	<h1>register</h1>
+    	<div id="register2">
+    	<!-- 这里密码两次输入不相同需要提示，用户名在数据库已经存在也要提示，email格式不正确也要提示 -->
+    		<input type="text" placeholder="请输入用户名："><span class="user-wrg">*用户名已存在</span>
+    		<br>
+    		<input type="password" placeholder="请输入密码：">
+    		<br>
+    		<input type="password" placeholder="请再次输入密码："><span class="psd-wrg">*两次密码输入不正确</span>
+    		<br>
+    		<input class="email-inp" type="email" placeholder="请输入email："><span class="email-wrg">*email格式不正确</span>
+    		<br>
+    		<input type="text" placeholder="请输入性别：">
+    		<br>
+    		<input type="text" placeholder="请输入所在地：">
+    	</div>
+    	<span class="register register2">
+    		register
+    	</span>
+    	<span class="close-it close-it2">
+    		close
+    	</span>
+    </div>
+    <!-- //弹窗模块 -->
+
+
+   
+
+    <!-- footer,这个主体模块的最下面那模块,最下面黑色的那个 -->
+	<div class="footer"></div>
+	<!-- //footer -->
+
+    <!-- js放在文档最后 -->
+    <!-- 这个主要是滚动主内容区模块，默认的话是sports在最前面的，加上这个就把recent video滚动到最前面去 -->
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //这个主要是滚动主内容区模块-->
+
+    <!-- 导入jq -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- //jq -->
+
+	<script src="js/responsiveslides.min.js"></script>
+
+    <script src="js/index.js"></script>
+    <!-- 下面这个是bootstrap需要的js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- //bootstrap需要的js -->
+  </body>
+</html>

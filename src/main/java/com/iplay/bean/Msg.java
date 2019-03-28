@@ -27,7 +27,7 @@ public class Msg {
     public static Msg fail() {
         Msg result = new Msg();
         result.setCode(200);
-        result.setMsg("success");
+        result.setMsg("failed");
         return result;
     }
 
