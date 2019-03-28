@@ -77,15 +77,15 @@ public class UserService {
     }
 
     //检查用户名是否存在
-    public boolean existUser(String name) {
+    public boolean unexistUsername(String name) {
         UserExample example = new UserExample();
         UserExample.Criteria criteria = example.createCriteria();
         criteria.andUserNameEqualTo(name);
         List<User> users = userMapper.selectByExample(example);
         if (users.isEmpty()) {
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
 
     }

@@ -7,7 +7,7 @@ import java.util.Map;
  *通用的返回的类
  */
 public class Msg {
-    //code 100-success 200-falid
+    //code 100-success 200-failed
     private int code;
 
 
