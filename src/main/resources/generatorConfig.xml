@@ -44,6 +44,5 @@
         <table tableName="tb_user" domainObjectName="User"></table>
         <table tableName="tb_video" domainObjectName="Video"></table>
 
-
     </context>
 </generatorConfiguration>

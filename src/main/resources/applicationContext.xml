@@ -14,6 +14,7 @@
      <context:exclude-filter>指定的不扫描，<context:include-filter>指定的扫描 -->
     <context:component-scan base-package="com.iplay.service" use-default-filters="true">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+
     </context:component-scan>
 
     <!-- Spring的配置文件，这里主要配置和业务逻辑有关的 -->
@@ -34,6 +35,16 @@
         <!-- 指定mybatis，mapper文件的位置 -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
     </bean>
+
+    <!--  引入参数配置文件         -->
+    <bean id="propertyConfigure" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:token.properties</value>
+            </list>
+        </property>
+    </bean>
+
 
     <!-- 配置扫描器，将mybatis接口的实现加入到ioc容器中 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

@@ -5,19 +5,17 @@ import java.util.Date;
 public class Video {
     private Integer videoId;
 
-    private String videoUrl;
-
     private String videoUserId;
-
-    private Integer videoPosterUrl;
 
     private Integer videoViewCount;
 
     private String videoTitle;
 
-    private Date videoTime;
+    private Date videoUptime;
 
     private String videoUserName;
+
+    private String videoUrl;
 
     public Integer getVideoId() {
         return videoId;
@@ -27,28 +25,12 @@ public class Video {
         this.videoId = videoId;
     }
 
-    public String getVideoUrl() {
-        return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl == null ? null : videoUrl.trim();
-    }
-
     public String getVideoUserId() {
         return videoUserId;
     }
 
     public void setVideoUserId(String videoUserId) {
         this.videoUserId = videoUserId == null ? null : videoUserId.trim();
-    }
-
-    public Integer getVideoPosterUrl() {
-        return videoPosterUrl;
-    }
-
-    public void setVideoPosterUrl(Integer videoPosterUrl) {
-        this.videoPosterUrl = videoPosterUrl;
     }
 
     public Integer getVideoViewCount() {
@@ -67,12 +49,12 @@ public class Video {
         this.videoTitle = videoTitle == null ? null : videoTitle.trim();
     }
 
-    public Date getVideoTime() {
-        return videoTime;
+    public Date getVideoUptime() {
+        return videoUptime;
     }
 
-    public void setVideoTime(Date videoTime) {
-        this.videoTime = videoTime;
+    public void setVideoUptime(Date videoUptime) {
+        this.videoUptime = videoUptime;
     }
 
     public String getVideoUserName() {
@@ -81,5 +63,13 @@ public class Video {
 
     public void setVideoUserName(String videoUserName) {
         this.videoUserName = videoUserName == null ? null : videoUserName.trim();
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl == null ? null : videoUrl.trim();
     }
 }

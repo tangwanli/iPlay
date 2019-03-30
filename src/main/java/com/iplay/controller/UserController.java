@@ -1,5 +1,6 @@
 package com.iplay.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.iplay.bean.Msg;
 import com.iplay.bean.User;
 import com.iplay.service.UserService;
@@ -51,6 +52,38 @@ public class UserController {
             return Msg.fail().add("failed", "用户名已存在。");
 
     }
+    //删除用户
+    @RequestMapping(value = "/deleteUser",method = RequestMethod.POST)
+    @ResponseBody
+    public Msg register( Integer userId) {
+        if(userService.deleteUser(userId))
+            return Msg.success();
+        else
+            return Msg.fail();
+    }
+    //查询所有用户 分页
+    @RequestMapping(value = "/getAlluser",method = RequestMethod.POST)
+    @ResponseBody
+    public PageInfo<User> getAllUser(Integer pageNum) {
+       PageInfo pageInfo=userService.getAllUser(pageNum);
+        return pageInfo;
+    }
 
+
+    //查询单个用户
+    @RequestMapping(value = "/getUserById",method = RequestMethod.POST)
+    @ResponseBody
+    public Msg getuser(Integer id) {
+        return Msg.success().add("User",userService.getUserbyID(id));
+    }
+    //修改用户
+    @RequestMapping(value = "/updateUser",method = RequestMethod.POST)
+    @ResponseBody
+    public Msg update( User user) {
+        if(userService.update(user))
+            return Msg.success();
+        else
+            return Msg.fail();
+    }
 
 }

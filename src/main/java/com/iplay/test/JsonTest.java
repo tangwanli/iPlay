@@ -1,8 +1,8 @@
 package com.iplay.test;
 
-import com.iplay.bean.Msg;
-import com.iplay.bean.User;
+import com.iplay.bean.*;
 import com.iplay.dao.UserMapper;
+import com.iplay.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +15,15 @@ import java.util.List;
 public class JsonTest {
     @Autowired
     UserMapper userMapper;
-
+    @Autowired
+    VideoService videoService;
     @RequestMapping(value = "/json", method = RequestMethod.GET)
     @ResponseBody
     public Msg returnJson() {
         List<User> users = userMapper.selectByExample(null);
-        return Msg.success().add("Users",users);
+
+        return Msg.success().add("Users",users).add("uptoken", videoService.getVideoUpToken());
+
     }
 
 //    @RequestMapping(value = "/alltype", method = RequestMethod.GET)

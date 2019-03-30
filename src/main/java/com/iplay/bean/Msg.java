@@ -3,31 +3,25 @@ package com.iplay.bean;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *通用的返回的类
- */
+
 public class Msg {
-    //code 100-success 200-failed
+
     private int code;
-
-
-    //return message
     private String msg;
 
-    //return to browser's data
     private Map<String, Object> data = new HashMap<String, Object>();
 
     public static Msg success() {
         Msg result = new Msg();
         result.setCode(100);
-        result.setMsg("success");
+        result.setMsg("Success");
         return result;
     }
 
     public static Msg fail() {
         Msg result = new Msg();
         result.setCode(200);
-        result.setMsg("failed");
+        result.setMsg("Failed");
         return result;
     }
 

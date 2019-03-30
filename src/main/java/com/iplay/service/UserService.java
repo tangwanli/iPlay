@@ -1,5 +1,7 @@
 package com.iplay.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.iplay.bean.User;
 import com.iplay.bean.UserExample;
 import com.iplay.dao.UserMapper;
@@ -53,10 +55,13 @@ public class UserService {
         }
     }
 
-    //查询所有用户信息
-    public List<User> getAllUser() {
+    //查询所有用户信息 分页
+    public PageInfo<User> getAllUser(Integer pageNum) {
+        PageHelper.startPage(pageNum,10);
         List<User> users = userMapper.selectByExample(null);
-        return users;
+        //获取分页信息对象
+        PageInfo<User> pageInfo = new PageInfo<>(users);
+        return pageInfo;
     }
 
 

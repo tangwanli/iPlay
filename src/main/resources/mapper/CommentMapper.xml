@@ -7,6 +7,7 @@
     <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
     <result column="content" property="content" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    comment_id, video_id, publish_time, content, user_id
+    comment_id, video_id, publish_time, content, user_id, user_name
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.iplay.bean.CommentExample" >
     select
@@ -101,9 +102,11 @@
   </delete>
   <insert id="insert" parameterType="com.iplay.bean.Comment" >
     insert into tb_comment (comment_id, video_id, publish_time, 
-      content, user_id)
+      content, user_id, user_name
+      )
     values (#{commentId,jdbcType=INTEGER}, #{videoId,jdbcType=INTEGER}, #{publishTime,jdbcType=TIMESTAMP}, 
-      #{content,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER})
+      #{content,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.iplay.bean.Comment" >
     insert into tb_comment
@@ -123,6 +126,9 @@
       <if test="userId != null" >
         user_id,
       </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="commentId != null" >
@@ -139,6 +145,9 @@
       </if>
       <if test="userId != null" >
         #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -166,6 +175,9 @@
       <if test="record.userId != null" >
         user_id = #{record.userId,jdbcType=INTEGER},
       </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -177,7 +189,8 @@
       video_id = #{record.videoId,jdbcType=INTEGER},
       publish_time = #{record.publishTime,jdbcType=TIMESTAMP},
       content = #{record.content,jdbcType=VARCHAR},
-      user_id = #{record.userId,jdbcType=INTEGER}
+      user_id = #{record.userId,jdbcType=INTEGER},
+      user_name = #{record.userName,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -197,6 +210,9 @@
       <if test="userId != null" >
         user_id = #{userId,jdbcType=INTEGER},
       </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
     </set>
     where comment_id = #{commentId,jdbcType=INTEGER}
   </update>
@@ -205,7 +221,8 @@
     set video_id = #{videoId,jdbcType=INTEGER},
       publish_time = #{publishTime,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=VARCHAR},
-      user_id = #{userId,jdbcType=INTEGER}
+      user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR}
     where comment_id = #{commentId,jdbcType=INTEGER}
   </update>
 </mapper>

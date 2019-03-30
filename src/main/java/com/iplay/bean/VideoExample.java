@@ -165,76 +165,6 @@ public class VideoExample {
             return (Criteria) this;
         }
 
-        public Criteria andVideoUrlIsNull() {
-            addCriterion("video_url is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlIsNotNull() {
-            addCriterion("video_url is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlEqualTo(String value) {
-            addCriterion("video_url =", value, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlNotEqualTo(String value) {
-            addCriterion("video_url <>", value, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlGreaterThan(String value) {
-            addCriterion("video_url >", value, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlGreaterThanOrEqualTo(String value) {
-            addCriterion("video_url >=", value, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlLessThan(String value) {
-            addCriterion("video_url <", value, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlLessThanOrEqualTo(String value) {
-            addCriterion("video_url <=", value, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlLike(String value) {
-            addCriterion("video_url like", value, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlNotLike(String value) {
-            addCriterion("video_url not like", value, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlIn(List<String> values) {
-            addCriterion("video_url in", values, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlNotIn(List<String> values) {
-            addCriterion("video_url not in", values, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlBetween(String value1, String value2) {
-            addCriterion("video_url between", value1, value2, "videoUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoUrlNotBetween(String value1, String value2) {
-            addCriterion("video_url not between", value1, value2, "videoUrl");
-            return (Criteria) this;
-        }
-
         public Criteria andVideoUserIdIsNull() {
             addCriterion("video_user_id is null");
             return (Criteria) this;
@@ -302,66 +232,6 @@ public class VideoExample {
 
         public Criteria andVideoUserIdNotBetween(String value1, String value2) {
             addCriterion("video_user_id not between", value1, value2, "videoUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlIsNull() {
-            addCriterion("video_poster_url is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlIsNotNull() {
-            addCriterion("video_poster_url is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlEqualTo(Integer value) {
-            addCriterion("video_poster_url =", value, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlNotEqualTo(Integer value) {
-            addCriterion("video_poster_url <>", value, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlGreaterThan(Integer value) {
-            addCriterion("video_poster_url >", value, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlGreaterThanOrEqualTo(Integer value) {
-            addCriterion("video_poster_url >=", value, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlLessThan(Integer value) {
-            addCriterion("video_poster_url <", value, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlLessThanOrEqualTo(Integer value) {
-            addCriterion("video_poster_url <=", value, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlIn(List<Integer> values) {
-            addCriterion("video_poster_url in", values, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlNotIn(List<Integer> values) {
-            addCriterion("video_poster_url not in", values, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlBetween(Integer value1, Integer value2) {
-            addCriterion("video_poster_url between", value1, value2, "videoPosterUrl");
-            return (Criteria) this;
-        }
-
-        public Criteria andVideoPosterUrlNotBetween(Integer value1, Integer value2) {
-            addCriterion("video_poster_url not between", value1, value2, "videoPosterUrl");
             return (Criteria) this;
         }
 
@@ -495,63 +365,63 @@ public class VideoExample {
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeIsNull() {
-            addCriterion("video_time is null");
+        public Criteria andVideoUptimeIsNull() {
+            addCriterion("video_uptime is null");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeIsNotNull() {
-            addCriterion("video_time is not null");
+        public Criteria andVideoUptimeIsNotNull() {
+            addCriterion("video_uptime is not null");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeEqualTo(Date value) {
-            addCriterion("video_time =", value, "videoTime");
+        public Criteria andVideoUptimeEqualTo(Date value) {
+            addCriterion("video_uptime =", value, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeNotEqualTo(Date value) {
-            addCriterion("video_time <>", value, "videoTime");
+        public Criteria andVideoUptimeNotEqualTo(Date value) {
+            addCriterion("video_uptime <>", value, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeGreaterThan(Date value) {
-            addCriterion("video_time >", value, "videoTime");
+        public Criteria andVideoUptimeGreaterThan(Date value) {
+            addCriterion("video_uptime >", value, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("video_time >=", value, "videoTime");
+        public Criteria andVideoUptimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("video_uptime >=", value, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeLessThan(Date value) {
-            addCriterion("video_time <", value, "videoTime");
+        public Criteria andVideoUptimeLessThan(Date value) {
+            addCriterion("video_uptime <", value, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeLessThanOrEqualTo(Date value) {
-            addCriterion("video_time <=", value, "videoTime");
+        public Criteria andVideoUptimeLessThanOrEqualTo(Date value) {
+            addCriterion("video_uptime <=", value, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeIn(List<Date> values) {
-            addCriterion("video_time in", values, "videoTime");
+        public Criteria andVideoUptimeIn(List<Date> values) {
+            addCriterion("video_uptime in", values, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeNotIn(List<Date> values) {
-            addCriterion("video_time not in", values, "videoTime");
+        public Criteria andVideoUptimeNotIn(List<Date> values) {
+            addCriterion("video_uptime not in", values, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeBetween(Date value1, Date value2) {
-            addCriterion("video_time between", value1, value2, "videoTime");
+        public Criteria andVideoUptimeBetween(Date value1, Date value2) {
+            addCriterion("video_uptime between", value1, value2, "videoUptime");
             return (Criteria) this;
         }
 
-        public Criteria andVideoTimeNotBetween(Date value1, Date value2) {
-            addCriterion("video_time not between", value1, value2, "videoTime");
+        public Criteria andVideoUptimeNotBetween(Date value1, Date value2) {
+            addCriterion("video_uptime not between", value1, value2, "videoUptime");
             return (Criteria) this;
         }
 
@@ -622,6 +492,76 @@ public class VideoExample {
 
         public Criteria andVideoUserNameNotBetween(String value1, String value2) {
             addCriterion("video_user_name not between", value1, value2, "videoUserName");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlIsNull() {
+            addCriterion("video_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlIsNotNull() {
+            addCriterion("video_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlEqualTo(String value) {
+            addCriterion("video_url =", value, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlNotEqualTo(String value) {
+            addCriterion("video_url <>", value, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlGreaterThan(String value) {
+            addCriterion("video_url >", value, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("video_url >=", value, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlLessThan(String value) {
+            addCriterion("video_url <", value, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlLessThanOrEqualTo(String value) {
+            addCriterion("video_url <=", value, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlLike(String value) {
+            addCriterion("video_url like", value, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlNotLike(String value) {
+            addCriterion("video_url not like", value, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlIn(List<String> values) {
+            addCriterion("video_url in", values, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlNotIn(List<String> values) {
+            addCriterion("video_url not in", values, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlBetween(String value1, String value2) {
+            addCriterion("video_url between", value1, value2, "videoUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoUrlNotBetween(String value1, String value2) {
+            addCriterion("video_url not between", value1, value2, "videoUrl");
             return (Criteria) this;
         }
     }
