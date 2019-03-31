@@ -450,6 +450,8 @@ a.btn.btn-primary.btn-lg.see-button.hvr-shutter-out-horizontal {
 }
 .resent-grid {
 	padding-left: 0.1em;
+  padding-bottom: 0.1em;
+  margin-bottom: 20px;
 }
 .resent-grid-img{
 	position:relative;
@@ -462,7 +464,8 @@ a.btn.btn-primary.btn-lg.see-button.hvr-shutter-out-horizontal {
 	display:block;
 }
 .resent-grid a img{
-	width:100%;
+	width: 400px;
+  height: 300px;
 }
 .time{
   position: absolute;
@@ -1229,6 +1232,7 @@ width:100%;
 }
 .media {
     margin: 4em 0;
+    position: relative;
 }
 .media h5 {
     font-size: 14px;
@@ -2776,10 +2780,9 @@ background: url(../images/social.png) no-repeat 0px 0px;
 }
 
 .user-name {
-  display: none;/*
-  display: inline-block;*/
+  display: none;
   padding: 8px 20px;
-  margin: 0 50px;
+  margin: 0 30px;
   background: #21DEEF;
   color: #fff;
   font-size: 14px;
@@ -2791,6 +2794,24 @@ background: url(../images/social.png) no-repeat 0px 0px;
   color: #272C2E;
   background: #F7F7F7;
 }
+
+.log-off-btn {
+  display: none;
+  padding: 8px 20px;
+  margin: 0 30px;
+  background: #21DEEF;
+  color: #fff;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.log-off-btn:hover {
+  text-decoration: none;
+  color: #272C2E;
+  background: #F7F7F7;
+}
+/*.register-btn{display: none;}
+.login-btn{display: none;}*/
 /* //控制用户登录之后，隐藏登录、注册按钮，
 *显示出用户名按钮的
 */
@@ -2800,6 +2821,7 @@ background: url(../images/social.png) no-repeat 0px 0px;
 .main {
   /*display: none;*/
   padding: 5em 0 0 0;
+  min-height: 621px;
 }
 /* //控制主界面隐藏 */
 
@@ -2940,6 +2962,8 @@ background: url(../images/social.png) no-repeat 0px 0px;
 
 /* 视频首页模块 */
 .vdo-poster-upload {
+  overflow: hidden;
+  height: 500px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -2961,6 +2985,14 @@ background: url(../images/social.png) no-repeat 0px 0px;
 }
 #video-poster {
   display: none;
+}
+.file-inf {
+  width: 100%;
+  overflow: hidden;
+  /*transform: translate(0,76px);*/
+}
+.file-inf span {
+  padding-left: 20px;
 }
 /* 视频首页模块 */
 
@@ -2988,7 +3020,9 @@ background: url(../images/social.png) no-repeat 0px 0px;
   margin-top: 20px;
   color: red; 
 }
-
+.my-pro {
+  transform: scale(0.9) translate(0,200px);
+}
 /* //视频信息修改模块 */
 /* //视频信息上传模块 */
 
@@ -3022,6 +3056,13 @@ background: url(../images/social.png) no-repeat 0px 0px;
 }
 .delete-com:hover {
   color: #21DEEF;
+}
+.publish-time {
+  position: absolute;
+  top: 5px;
+  right: 13px;
+  font-weight: bold;
+  color: #555;
 }
 /* 管理员才有的删除标记 */
 /* //评论模块 */
@@ -3110,6 +3151,12 @@ background: url(../images/social.png) no-repeat 0px 0px;
   color: #21DEEF;
 }
 /* //评论管理模块 */
+
+.thr-btn {
+  position: absolute;
+  top: 83%;
+  left: 50%;
+}
 
 
 
