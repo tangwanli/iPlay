@@ -17,6 +17,8 @@ public class Video {
 
     private String videoUrl;
 
+    private String videoPosterUrl;
+
     public Integer getVideoId() {
         return videoId;
     }
@@ -71,5 +73,13 @@ public class Video {
 
     public void setVideoUrl(String videoUrl) {
         this.videoUrl = videoUrl == null ? null : videoUrl.trim();
+    }
+
+    public String getVideoPosterUrl() {
+        return videoPosterUrl;
+    }
+
+    public void setVideoPosterUrl(String videoPosterUrl) {
+        this.videoPosterUrl = videoPosterUrl == null ? null : videoPosterUrl.trim();
     }
 }

@@ -1,6 +1,7 @@
 package com.iplay.service;
 
 import com.iplay.bean.Video;
+import com.iplay.bean.VideoExample;
 import com.iplay.dao.VideoMapper;
 import com.qiniu.common.Zone;
 import com.qiniu.storage.BucketManager;
@@ -113,6 +114,15 @@ public class VideoService {
     public List<Video> getAllVideo() {
         List<Video> videos=videoMapper.selectByExample(null);
             return videos;
+
+    }
+    // 向数据库搜索视频
+    public List<Video> getVideo(String videoName) {
+        VideoExample videoExample=new VideoExample();
+        VideoExample.Criteria criteria=videoExample.createCriteria();
+        criteria.andVideoTitleLike(videoName);
+        List<Video> videos=videoMapper.selectByExample(null);
+        return videos;
 
     }
     // 修改点击量

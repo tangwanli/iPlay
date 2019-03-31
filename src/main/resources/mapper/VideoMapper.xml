@@ -9,6 +9,7 @@
     <result column="video_uptime" property="videoUptime" jdbcType="TIMESTAMP" />
     <result column="video_user_name" property="videoUserName" jdbcType="VARCHAR" />
     <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
+    <result column="video_poster_url" property="videoPosterUrl" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +71,7 @@
   </sql>
   <sql id="Base_Column_List" >
     video_id, video_user_id, video_view_count, video_title, video_uptime, video_user_name, 
-    video_url
+    video_url, video_poster_url
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.iplay.bean.VideoExample" >
     select
@@ -105,10 +106,10 @@
   <insert id="insert" parameterType="com.iplay.bean.Video" >
     insert into tb_video (video_id, video_user_id, video_view_count, 
       video_title, video_uptime, video_user_name, 
-      video_url)
+      video_url, video_poster_url)
     values (#{videoId,jdbcType=INTEGER}, #{videoUserId,jdbcType=VARCHAR}, #{videoViewCount,jdbcType=INTEGER}, 
       #{videoTitle,jdbcType=VARCHAR}, #{videoUptime,jdbcType=TIMESTAMP}, #{videoUserName,jdbcType=VARCHAR}, 
-      #{videoUrl,jdbcType=VARCHAR})
+      #{videoUrl,jdbcType=VARCHAR}, #{videoPosterUrl,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.iplay.bean.Video" >
     insert into tb_video
@@ -134,6 +135,9 @@
       <if test="videoUrl != null" >
         video_url,
       </if>
+      <if test="videoPosterUrl != null" >
+        video_poster_url,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="videoId != null" >
@@ -156,6 +160,9 @@
       </if>
       <if test="videoUrl != null" >
         #{videoUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="videoPosterUrl != null" >
+        #{videoPosterUrl,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -189,6 +196,9 @@
       <if test="record.videoUrl != null" >
         video_url = #{record.videoUrl,jdbcType=VARCHAR},
       </if>
+      <if test="record.videoPosterUrl != null" >
+        video_poster_url = #{record.videoPosterUrl,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -202,7 +212,8 @@
       video_title = #{record.videoTitle,jdbcType=VARCHAR},
       video_uptime = #{record.videoUptime,jdbcType=TIMESTAMP},
       video_user_name = #{record.videoUserName,jdbcType=VARCHAR},
-      video_url = #{record.videoUrl,jdbcType=VARCHAR}
+      video_url = #{record.videoUrl,jdbcType=VARCHAR},
+      video_poster_url = #{record.videoPosterUrl,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -228,6 +239,9 @@
       <if test="videoUrl != null" >
         video_url = #{videoUrl,jdbcType=VARCHAR},
       </if>
+      <if test="videoPosterUrl != null" >
+        video_poster_url = #{videoPosterUrl,jdbcType=VARCHAR},
+      </if>
     </set>
     where video_id = #{videoId,jdbcType=INTEGER}
   </update>
@@ -238,7 +252,8 @@
       video_title = #{videoTitle,jdbcType=VARCHAR},
       video_uptime = #{videoUptime,jdbcType=TIMESTAMP},
       video_user_name = #{videoUserName,jdbcType=VARCHAR},
-      video_url = #{videoUrl,jdbcType=VARCHAR}
+      video_url = #{videoUrl,jdbcType=VARCHAR},
+      video_poster_url = #{videoPosterUrl,jdbcType=VARCHAR}
     where video_id = #{videoId,jdbcType=INTEGER}
   </update>
 </mapper>

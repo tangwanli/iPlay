@@ -6,6 +6,7 @@ import com.iplay.bean.Msg;
 import com.iplay.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,19 +16,21 @@ public class CommentController {
     @Autowired
     CommentService commentService;
 
-    //删除一条评论
+    //删除评论
     @RequestMapping(value = "/deleteComment",method = RequestMethod.POST)
     @ResponseBody
-    public Msg delete(Integer cid) {
-        if (commentService.delete(cid)) {
-            return Msg.success();
-        } else {
-            return Msg.fail();
+    @Transactional
+    public Msg delete(String commentIds) {
+         String[] CommentIds= commentIds.split("%");
+        for (int i = 0; i <CommentIds.length ; i++) {
+            if(!commentService.delete(Integer.valueOf(CommentIds[i])))
+                return  Msg.fail();
         }
+        return Msg.success();
     }
 
     //增加一条评论
-    @RequestMapping(value = "/addsComment",method = RequestMethod.POST)
+    @RequestMapping(value = "/subCommit",method = RequestMethod.POST)
     @ResponseBody
     //传人参数 video_id context userId
     public boolean add(Comment comment) {

@@ -564,6 +564,76 @@ public class VideoExample {
             addCriterion("video_url not between", value1, value2, "videoUrl");
             return (Criteria) this;
         }
+
+        public Criteria andVideoPosterUrlIsNull() {
+            addCriterion("video_poster_url is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlIsNotNull() {
+            addCriterion("video_poster_url is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlEqualTo(String value) {
+            addCriterion("video_poster_url =", value, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlNotEqualTo(String value) {
+            addCriterion("video_poster_url <>", value, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlGreaterThan(String value) {
+            addCriterion("video_poster_url >", value, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("video_poster_url >=", value, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlLessThan(String value) {
+            addCriterion("video_poster_url <", value, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlLessThanOrEqualTo(String value) {
+            addCriterion("video_poster_url <=", value, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlLike(String value) {
+            addCriterion("video_poster_url like", value, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlNotLike(String value) {
+            addCriterion("video_poster_url not like", value, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlIn(List<String> values) {
+            addCriterion("video_poster_url in", values, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlNotIn(List<String> values) {
+            addCriterion("video_poster_url not in", values, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlBetween(String value1, String value2) {
+            addCriterion("video_poster_url between", value1, value2, "videoPosterUrl");
+            return (Criteria) this;
+        }
+
+        public Criteria andVideoPosterUrlNotBetween(String value1, String value2) {
+            addCriterion("video_poster_url not between", value1, value2, "videoPosterUrl");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

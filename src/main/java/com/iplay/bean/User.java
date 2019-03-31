@@ -13,9 +13,9 @@ public class User {
 
     private String userCity;
 
-    private String userPhoto;
-
     private Integer userRole;
+
+    private String userPhoto;
 
     public Integer getUserId() {
         return userId;
@@ -65,6 +65,14 @@ public class User {
         this.userCity = userCity == null ? null : userCity.trim();
     }
 
+    public Integer getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(Integer userRole) {
+        this.userRole = userRole;
+    }
+
     public String getUserPhoto() {
         return userPhoto;
     }
@@ -73,11 +81,17 @@ public class User {
         this.userPhoto = userPhoto == null ? null : userPhoto.trim();
     }
 
-    public Integer getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(Integer userRole) {
-        this.userRole = userRole;
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userSex=" + userSex +
+                ", userEmail='" + userEmail + '\'' +
+                ", userCity='" + userCity + '\'' +
+                ", userRole=" + userRole +
+                ", userPhoto='" + userPhoto + '\'' +
+                '}';
     }
 }

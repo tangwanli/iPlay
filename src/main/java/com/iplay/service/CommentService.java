@@ -34,7 +34,7 @@ public class CommentService {
     }
    //根据video_id 获取评论
      public PageInfo<Comment> getCommentById(Integer vid,Integer pageNum){
-        PageHelper.startPage(pageNum,10);
+        PageHelper.startPage(pageNum,7);
         CommentExample example=new CommentExample();
         CommentExample.Criteria criteria=example.createCriteria();
         criteria.andVideoIdEqualTo(vid);
@@ -50,7 +50,7 @@ public class CommentService {
 
     //查询所有评论
     public PageInfo<Comment> getAllComment(Integer pageNum){
-        PageHelper.startPage(pageNum,10);
+        PageHelper.startPage(pageNum,12);
         List<Comment> comments = commentMapper.selectByExample(null);
         //获取分页信息对象
         PageInfo<Comment> pageInfo = new PageInfo<>(comments);

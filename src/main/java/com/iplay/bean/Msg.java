@@ -14,14 +14,14 @@ public class Msg {
     public static Msg success() {
         Msg result = new Msg();
         result.setCode(100);
-        result.setMsg("Success");
+        result.setMsg("success");
         return result;
     }
 
     public static Msg fail() {
         Msg result = new Msg();
         result.setCode(200);
-        result.setMsg("Failed");
+        result.setMsg("failed");
         return result;
     }
 

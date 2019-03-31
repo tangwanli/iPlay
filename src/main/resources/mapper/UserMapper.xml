@@ -8,8 +8,10 @@
     <result column="user_sex" property="userSex" jdbcType="INTEGER" />
     <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
     <result column="user_city" property="userCity" jdbcType="VARCHAR" />
-    <result column="user_photo" property="userPhoto" jdbcType="VARCHAR" />
     <result column="user_role" property="userRole" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.iplay.bean.User" extends="BaseResultMap" >
+    <result column="user_photo" property="userPhoto" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,8 +72,27 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    user_id, user_name, user_password, user_sex, user_email, user_city, user_photo, user_role
+    user_id, user_name, user_password, user_sex, user_email, user_city, user_role
   </sql>
+  <sql id="Blob_Column_List" >
+    user_photo
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.iplay.bean.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from tb_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.iplay.bean.UserExample" >
     select
     <if test="distinct" >
@@ -86,9 +107,11 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
     from tb_user
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
@@ -105,10 +128,10 @@
   <insert id="insert" parameterType="com.iplay.bean.User" >
     insert into tb_user (user_id, user_name, user_password, 
       user_sex, user_email, user_city, 
-      user_photo, user_role)
+      user_role, user_photo)
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPassword,jdbcType=VARCHAR}, 
       #{userSex,jdbcType=INTEGER}, #{userEmail,jdbcType=VARCHAR}, #{userCity,jdbcType=VARCHAR}, 
-      #{userPhoto,jdbcType=VARCHAR}, #{userRole,jdbcType=INTEGER})
+      #{userRole,jdbcType=INTEGER}, #{userPhoto,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.iplay.bean.User" >
     insert into tb_user
@@ -131,11 +154,11 @@
       <if test="userCity != null" >
         user_city,
       </if>
-      <if test="userPhoto != null" >
-        user_photo,
-      </if>
       <if test="userRole != null" >
         user_role,
+      </if>
+      <if test="userPhoto != null" >
+        user_photo,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -157,11 +180,11 @@
       <if test="userCity != null" >
         #{userCity,jdbcType=VARCHAR},
       </if>
-      <if test="userPhoto != null" >
-        #{userPhoto,jdbcType=VARCHAR},
-      </if>
       <if test="userRole != null" >
         #{userRole,jdbcType=INTEGER},
+      </if>
+      <if test="userPhoto != null" >
+        #{userPhoto,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -192,13 +215,27 @@
       <if test="record.userCity != null" >
         user_city = #{record.userCity,jdbcType=VARCHAR},
       </if>
-      <if test="record.userPhoto != null" >
-        user_photo = #{record.userPhoto,jdbcType=VARCHAR},
-      </if>
       <if test="record.userRole != null" >
         user_role = #{record.userRole,jdbcType=INTEGER},
       </if>
+      <if test="record.userPhoto != null" >
+        user_photo = #{record.userPhoto,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update tb_user
+    set user_id = #{record.userId,jdbcType=INTEGER},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_password = #{record.userPassword,jdbcType=VARCHAR},
+      user_sex = #{record.userSex,jdbcType=INTEGER},
+      user_email = #{record.userEmail,jdbcType=VARCHAR},
+      user_city = #{record.userCity,jdbcType=VARCHAR},
+      user_role = #{record.userRole,jdbcType=INTEGER},
+      user_photo = #{record.userPhoto,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -211,7 +248,6 @@
       user_sex = #{record.userSex,jdbcType=INTEGER},
       user_email = #{record.userEmail,jdbcType=VARCHAR},
       user_city = #{record.userCity,jdbcType=VARCHAR},
-      user_photo = #{record.userPhoto,jdbcType=VARCHAR},
       user_role = #{record.userRole,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -235,13 +271,24 @@
       <if test="userCity != null" >
         user_city = #{userCity,jdbcType=VARCHAR},
       </if>
-      <if test="userPhoto != null" >
-        user_photo = #{userPhoto,jdbcType=VARCHAR},
-      </if>
       <if test="userRole != null" >
         user_role = #{userRole,jdbcType=INTEGER},
       </if>
+      <if test="userPhoto != null" >
+        user_photo = #{userPhoto,jdbcType=LONGVARCHAR},
+      </if>
     </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.iplay.bean.User" >
+    update tb_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_password = #{userPassword,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=INTEGER},
+      user_email = #{userEmail,jdbcType=VARCHAR},
+      user_city = #{userCity,jdbcType=VARCHAR},
+      user_role = #{userRole,jdbcType=INTEGER},
+      user_photo = #{userPhoto,jdbcType=LONGVARCHAR}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.iplay.bean.User" >
@@ -251,7 +298,6 @@
       user_sex = #{userSex,jdbcType=INTEGER},
       user_email = #{userEmail,jdbcType=VARCHAR},
       user_city = #{userCity,jdbcType=VARCHAR},
-      user_photo = #{userPhoto,jdbcType=VARCHAR},
       user_role = #{userRole,jdbcType=INTEGER}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>

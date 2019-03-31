@@ -35,7 +35,7 @@ public class UserService {
 
     }
 
-    //根据用户名查id
+    //根据用户名查用户信息
     public int getUserId(String username) {
         UserExample example = new UserExample();
         UserExample.Criteria criteria = example.createCriteria();
@@ -48,6 +48,7 @@ public class UserService {
 
     //修改一条用户数据
     public boolean update(User user) {
+        System.out.println(user.toString());
         if (userMapper.updateByPrimaryKeySelective(user) == 1) {
             return true;
         } else {
@@ -57,7 +58,7 @@ public class UserService {
 
     //查询所有用户信息 分页
     public PageInfo<User> getAllUser(Integer pageNum) {
-        PageHelper.startPage(pageNum,10);
+        PageHelper.startPage(pageNum,12);
         List<User> users = userMapper.selectByExample(null);
         //获取分页信息对象
         PageInfo<User> pageInfo = new PageInfo<>(users);
