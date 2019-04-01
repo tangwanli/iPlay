@@ -11,10 +11,10 @@ $(function(){
     localStorage.setItem('vdoComId','1');
 
 
-/*    $('.left-side-nav li:nth-of-type(3)').css('display','none');
+    $('.left-side-nav li:nth-of-type(3)').css('display','none');
     $('.left-side-nav li:nth-of-type(4)').css('display','none');
     $('.left-side-nav li:nth-of-type(5)').css('display','none');
-    $('.left-side-nav li:nth-of-type(6)').css('display','none');*/
+    $('.left-side-nav li:nth-of-type(6)').css('display','none');
 
     /* 把时间戳转换为本地时间 */
     function getLocalTime(nS) {     
