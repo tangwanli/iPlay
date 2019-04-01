@@ -52,9 +52,9 @@ public class CommentController {
     //获取所有评论 分页
     @RequestMapping(value = "/getAllComment",method = RequestMethod.POST)
     @ResponseBody
-    public PageInfo<Comment> getAllComment( Integer pageNum){
+    public Msg getAllComment( Integer pageNum){
         PageInfo pageInfo= commentService.getAllComment(pageNum);
-        return pageInfo;
+        return Msg.success().add("pageInfo",pageInfo);
     }
 
 

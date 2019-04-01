@@ -69,7 +69,7 @@ public class VideoService {
 
     // 根据文件名获取视频URL
     public String getFinalUrl(String filename) throws UnsupportedEncodingException {
-        String encodedFileName = encode(filename + ".mp4", "utf-8");
+        String encodedFileName = encode(filename, "utf-8");
         String publicUrl = String.format("%s/%s", domainOfBucket, encodedFileName);
         long expireInSeconds = 3600;//1小时，可以自定义链接过期时间
         String finalUrl = getAuth().privateDownloadUrl(publicUrl, expireInSeconds);
@@ -121,7 +121,7 @@ public class VideoService {
         VideoExample videoExample=new VideoExample();
         VideoExample.Criteria criteria=videoExample.createCriteria();
         criteria.andVideoTitleLike(videoName);
-        List<Video> videos=videoMapper.selectByExample(null);
+        List<Video> videos=videoMapper.selectByExample(videoExample);
         return videos;
 
     }
@@ -147,7 +147,7 @@ public class VideoService {
 
     //返回视频截帧图片URL
     public String getVideoImageUrl(String videoName) {
-       String VideoImageurl= getAuth().privateDownloadUrl("http://pp4665x66.bkt.clouddn.com/"+videoName+".mp4"+"?vframe/jpg/offset/10");
+       String VideoImageurl= getAuth().privateDownloadUrl("http://pp4665x66.bkt.clouddn.com/"+videoName+"?vframe/jpg/offset/10");
         return VideoImageurl;
 
     }

@@ -72,6 +72,7 @@ public class UserController {
     @ResponseBody
     public PageInfo<User> getAllUser(Integer pageNum) {
        PageInfo pageInfo=userService.getAllUser(pageNum);
+
         return pageInfo;
     }
 
