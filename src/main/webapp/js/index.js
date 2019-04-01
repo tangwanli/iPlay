@@ -92,11 +92,11 @@ changeSex2();
         uUserLoc.val(res.data.User.userCity);
         uUserPic.attr('src',res.data.User.userPhoto);
         if (res.data.User.userSex) {
-            $('.sex-box button').text('man');
-            $('.sec-drop-box li a').text('woman');
-        } else {
             $('.sex-box button').text('woman');
             $('.sec-drop-box li a').text('man');
+        } else {
+            $('.sex-box button').text('man');
+            $('.sec-drop-box li a').text('woman');
         }
         });
         
