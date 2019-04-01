@@ -1,5 +1,7 @@
 package com.iplay.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.iplay.bean.Msg;
 import com.iplay.bean.Video;
 import com.iplay.service.VideoService;
@@ -22,9 +24,17 @@ public class VideoController {
      //查询所有视频信息
     @RequestMapping(value = "/getAllVideoInfo", method = RequestMethod.POST)
     @ResponseBody
+    public Msg getAllVideoInfo(int pageNum) throws UnsupportedEncodingException {
+        PageHelper.startPage(pageNum,12);
+        List<Video> videos=videoService.getAllVideo();
+        PageInfo<Video> pageInfo = new PageInfo<>(videos);
+        return Msg.success().add("pageInfo", pageInfo);
+    }
+    //返回首页视频
+    @RequestMapping(value = "/getAllVideoUrl", method = RequestMethod.POST)
+    @ResponseBody
     public Msg getAllVideoURl() throws UnsupportedEncodingException {
-        //从数据获取视频信息
-        List<Video> videos = videoService.getAllVideo();
+        List<Video> videos=videoService.getAllVideo();
         //遍历授权视频URL
         for (int i = 0; i < videos.size(); i++) {
             videos.get(i).setVideoUrl(videoService.getFinalUrl(videos.get(i).getVideoTitle()));
@@ -33,14 +43,9 @@ public class VideoController {
         for (int i = 0; i < videos.size(); i++) {
             videos.get(i).setVideoPosterUrl(videoService.getVideoImageUrl(videos.get(i).getVideoTitle()));
         }
-        for (int i = 0; i <videos.size() ; i++) {
-            System.out.println(videos.get(i).getVideoUrl());
-            System.out.println(videos.get(i).getVideoPosterUrl());
 
-        }
-        return Msg.success().add("Video", videos);
+        return Msg.success().add("Video",videos );
     }
-
     //搜索视频信息
     @RequestMapping(value = "/searchVideos", method = RequestMethod.POST)
     @ResponseBody

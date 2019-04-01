@@ -150,7 +150,7 @@ public class VideoService {
 
     //返回视频截帧图片URL
     public String getVideoImageUrl(String videoName) {
-       String VideoImageurl= getAuth().privateDownloadUrl("http://pp4665x66.bkt.clouddn.com/"+videoName+"?vframe/jpg/offset/10");
+       String VideoImageurl= getAuth().privateDownloadUrl("http://pp4665x66.bkt.clouddn.com/"+videoName+"?vframe/jpg/offset/19");
         return VideoImageurl;
 
     }
