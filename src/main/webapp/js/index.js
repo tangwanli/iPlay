@@ -226,7 +226,6 @@ changeSex2();
             }
             localStorage.setItem('userId',res.data.userId);
             
-            alert('登录成功');
             $(popUp1).hide();
             $(registerBtn).hide();
             $(loginBtn).hide();
@@ -250,7 +249,6 @@ changeSex2();
                 $('.left-side-nav li:nth-of-type(6)').css('display','none');
             }
         } else {
-            alert('登录失败');
             $(popUp1).hide(500);
         }
         console.log("登录返回数据为：" + res);
@@ -316,10 +314,8 @@ changeSex2();
             userPhoto: defPhoto
         }, function(data){
             if (data.msg == 'success') {
-                alert('注册成功，请牢记用户名和密码');
                 $(popUp2).hide(500);
             } else {
-                alert('注册失败，服务器开小差了');
             }
         });
     });
@@ -387,9 +383,7 @@ changeSex2();
             userPhoto: localStorage.getItem('userPhoto')
         }, function(res) {
             if (res.msg == 'success') {
-                alert('成功修改');
             } else {
-                alert('修改失败');
             }
         });
     });
@@ -465,13 +459,11 @@ changeSex2();
                                     },
                                     complete(res){
                                         console.log(res);
-                                        alert('上传成功');
                                     }
                                 };
                             observable.subscribe(observer);
                             
                         } else {
-                            alert('上传失败');
                         }
                     });
 
@@ -524,11 +516,9 @@ changeSex2();
                 userIds: userIdArr.join('%')
             }, function(res) {
                 if(res.msg == 'success') {
-                    alert('删除成功');
                     $('.user-inf-list').empty();
                     showUserMsg(1);
                 } else {
-                    alert('删除失败');
                 }
             });
             console.log(userIdArr);
@@ -598,11 +588,9 @@ changeSex2();
                     videoIds: vdoIdArr.join('%')
                 }, function(res) {
                     if(res.msg == 'success') {
-                        alert('删除成功');
                         $('.vdo-msg-list').empty();
                         showVdoMsg(1);
                     } else {
-                        alert('删除失败');
                     }
                 });
             });
@@ -637,6 +625,7 @@ changeSex2();
             pageNum: page
         },function(res){
             console.log("这里评论模块返回的这个res为：", res);
+            $('.com-mag-list').empty();
             let list = res.data.pageInfo.list,
                 len = list.length,
                 cMagList = $('.com-mag-list');
@@ -670,11 +659,9 @@ changeSex2();
                     commentIds: comIdArr.join('%')
                 }, function(res) {
                     if(res.msg == 'success') {
-                        alert('删除成功');
                         $('.com-mag-list').empty();
                         showComMsg(1);
                     } else {
-                        alert('删除失败');
                     }
                 });
             });
@@ -711,7 +698,6 @@ function getVdoCom(id,page) {
     },function(res) {
         console.log('获取的服务器返回是：',res);
         if(res.msg == 'success') {
-            alert('获取评论成功');
             let allCom = res.data.pageInfo.list,
                 len = allCom.length,
                 theAllCom = $('.the-all-com');
@@ -733,7 +719,6 @@ function getVdoCom(id,page) {
             theAllCom.append(str);
             }
         } else {
-            alert('获取评论失败');
         }
     });
 }
@@ -797,9 +782,7 @@ function getVdoCom(id,page) {
                     videoId: vdoId
                 },function(res){
                    if(res.msg == 'success') {
-                    alert('点击添加热度成功');
                    } else {
-                    alert('点击添加热度出错');
                    }
                 });
 
@@ -849,11 +832,9 @@ subCom[0].onclick = debounce(function() {
                     },function(res) {
                         console.log('数据库返回的消息是：',res);
                         if(res.msg == 'success') {
-                            alert('提交成功');
                             $('.user-vdo-com').val('');
                             getVdoCom(+localStorage.getItem('vdoId'),1);
                         } else {
-                            alert('提交失败');
                         }
                     });
                 }
@@ -932,7 +913,6 @@ subCom[0].onclick = debounce(function() {
                 hotVdo.append(str);
             }
         } else {
-            alert('没有找到内容');
         }
         });
     });
