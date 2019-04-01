@@ -120,7 +120,7 @@ public class VideoService {
     public List<Video> getVideo(String videoName) {
         VideoExample videoExample=new VideoExample();
         VideoExample.Criteria criteria=videoExample.createCriteria();
-        criteria.andVideoTitleLike(videoName);
+        criteria.andVideoTitleLike("%"+videoName+"%");
         List<Video> videos=videoMapper.selectByExample(videoExample);
         return videos;
 

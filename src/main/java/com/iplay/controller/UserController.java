@@ -88,15 +88,14 @@ public class UserController {
     @RequestMapping(value = "/updateUser",method = RequestMethod.POST)
     @ResponseBody
     public Msg update( User user) {
+        System.out.println(user.toString());
         if(user.getUserPassword().equals("")){
             user.setUserPassword(null);
         }
         if(user.getUserName().equals("")){
             user.setUserName(null);
         }
-        if(user.getUserRole().equals("")){
-            user.setUserRole(null);
-        }
+
         if(user.getUserPhoto().equals("")){
             user.setUserPhoto(null);
         }
@@ -107,7 +106,7 @@ public class UserController {
         }if(user.getUserSex().equals("")){
             user.setUserSex(null);
         }
-
+        System.out.println(user.toString());
         if(userService.update(user))
             return Msg.success();
         else
