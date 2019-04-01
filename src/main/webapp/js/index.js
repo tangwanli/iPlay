@@ -814,7 +814,24 @@ function getVdoCom(id,page) {
                 uVdoCom = $('.user-vdo-com');
 console.log('进入发表评论之前');
 
-            subCom.click(function() {
+           /* subCom.click(subComFun);*/
+
+/* 函数去抖 */
+function debounce(fn){
+  let timer = null
+  return function(...args){
+    if(timer != null) {
+      clearTimeout(timer)
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, args)
+      timer = null
+    }, 300)
+  }
+}
+
+
+subCom[0].onclick = debounce(function() {
                 console.log('进入发表评论');
                 console.log('输入的信息是');
                 console.log($('.user-vdo-com').val());
@@ -841,6 +858,9 @@ console.log('进入发表评论之前');
                     });
                 }
             });
+/* 函数去抖 */
+
+
             $('.cli-next').click(function(){
                 let prePage = +localStorage.getItem('vdoComId');
                     let nowPage = prePage + 1;
