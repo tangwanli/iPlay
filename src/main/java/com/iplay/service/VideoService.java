@@ -69,10 +69,13 @@ public class VideoService {
 
     // 根据文件名获取视频URL
     public String getFinalUrl(String filename) throws UnsupportedEncodingException {
-        String encodedFileName = encode(filename, "utf-8");
-        String publicUrl = String.format("%s/%s", domainOfBucket, encodedFileName);
+        System.out.println(filename);
+        String encodedFileName =encode(filename, "utf-8");
+        System.out.println(encodedFileName);
+        String publicUrl = String.format("%s/%s", domainOfBucket, encodedFileName).replaceAll("\\+", "%20");
         long expireInSeconds = 3600;//1小时，可以自定义链接过期时间
         String finalUrl = getAuth().privateDownloadUrl(publicUrl, expireInSeconds);
+        System.out.println(finalUrl);
         return finalUrl;
     }
     // 获取上传Token
