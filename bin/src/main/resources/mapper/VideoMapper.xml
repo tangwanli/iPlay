@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.iplay.dao.VideoMapper" >
+  <resultMap id="BaseResultMap" type="com.iplay.bean.Video" >
+    <id column="video_id" property="videoId" jdbcType="INTEGER" />
+    <result column="video_user_id" property="videoUserId" jdbcType="VARCHAR" />
+    <result column="video_view_count" property="videoViewCount" jdbcType="INTEGER" />
+    <result column="video_title" property="videoTitle" jdbcType="VARCHAR" />
+    <result column="video_uptime" property="videoUptime" jdbcType="TIMESTAMP" />
+    <result column="video_user_name" property="videoUserName" jdbcType="VARCHAR" />
+    <result column="video_url" property="videoUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    video_id, video_user_id, video_view_count, video_title, video_uptime, video_user_name, 
+    video_url
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.iplay.bean.VideoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_video
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_video
+    where video_id = #{videoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_video
+    where video_id = #{videoId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.iplay.bean.VideoExample" >
+    delete from tb_video
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.iplay.bean.Video" >
+    insert into tb_video (video_id, video_user_id, video_view_count, 
+      video_title, video_uptime, video_user_name, 
+      video_url)
+    values (#{videoId,jdbcType=INTEGER}, #{videoUserId,jdbcType=VARCHAR}, #{videoViewCount,jdbcType=INTEGER}, 
+      #{videoTitle,jdbcType=VARCHAR}, #{videoUptime,jdbcType=TIMESTAMP}, #{videoUserName,jdbcType=VARCHAR}, 
+      #{videoUrl,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.iplay.bean.Video" >
+    insert into tb_video
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        video_id,
+      </if>
+      <if test="videoUserId != null" >
+        video_user_id,
+      </if>
+      <if test="videoViewCount != null" >
+        video_view_count,
+      </if>
+      <if test="videoTitle != null" >
+        video_title,
+      </if>
+      <if test="videoUptime != null" >
+        video_uptime,
+      </if>
+      <if test="videoUserName != null" >
+        video_user_name,
+      </if>
+      <if test="videoUrl != null" >
+        video_url,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="videoId != null" >
+        #{videoId,jdbcType=INTEGER},
+      </if>
+      <if test="videoUserId != null" >
+        #{videoUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoViewCount != null" >
+        #{videoViewCount,jdbcType=INTEGER},
+      </if>
+      <if test="videoTitle != null" >
+        #{videoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUptime != null" >
+        #{videoUptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoUserName != null" >
+        #{videoUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUrl != null" >
+        #{videoUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.iplay.bean.VideoExample" resultType="java.lang.Integer" >
+    select count(*) from tb_video
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tb_video
+    <set >
+      <if test="record.videoId != null" >
+        video_id = #{record.videoId,jdbcType=INTEGER},
+      </if>
+      <if test="record.videoUserId != null" >
+        video_user_id = #{record.videoUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoViewCount != null" >
+        video_view_count = #{record.videoViewCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.videoTitle != null" >
+        video_title = #{record.videoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoUptime != null" >
+        video_uptime = #{record.videoUptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.videoUserName != null" >
+        video_user_name = #{record.videoUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.videoUrl != null" >
+        video_url = #{record.videoUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tb_video
+    set video_id = #{record.videoId,jdbcType=INTEGER},
+      video_user_id = #{record.videoUserId,jdbcType=VARCHAR},
+      video_view_count = #{record.videoViewCount,jdbcType=INTEGER},
+      video_title = #{record.videoTitle,jdbcType=VARCHAR},
+      video_uptime = #{record.videoUptime,jdbcType=TIMESTAMP},
+      video_user_name = #{record.videoUserName,jdbcType=VARCHAR},
+      video_url = #{record.videoUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.iplay.bean.Video" >
+    update tb_video
+    <set >
+      <if test="videoUserId != null" >
+        video_user_id = #{videoUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="videoViewCount != null" >
+        video_view_count = #{videoViewCount,jdbcType=INTEGER},
+      </if>
+      <if test="videoTitle != null" >
+        video_title = #{videoTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUptime != null" >
+        video_uptime = #{videoUptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="videoUserName != null" >
+        video_user_name = #{videoUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="videoUrl != null" >
+        video_url = #{videoUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where video_id = #{videoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.iplay.bean.Video" >
+    update tb_video
+    set video_user_id = #{videoUserId,jdbcType=VARCHAR},
+      video_view_count = #{videoViewCount,jdbcType=INTEGER},
+      video_title = #{videoTitle,jdbcType=VARCHAR},
+      video_uptime = #{videoUptime,jdbcType=TIMESTAMP},
+      video_user_name = #{videoUserName,jdbcType=VARCHAR},
+      video_url = #{videoUrl,jdbcType=VARCHAR}
+    where video_id = #{videoId,jdbcType=INTEGER}
+  </update>
+</mapper>

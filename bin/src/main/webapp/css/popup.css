@@ -1,0 +1,146 @@
+
+/* pop-up1 */
+/* 下面这个是设置登录页面，是否出现 */
+.pop-up1 {
+	display: none;
+	position: fixed;
+	top: 200px;
+	left: 320px;
+	width: 859px;
+	height: 340px;
+	/*background: -webkit-linear-gradient(top,#21DEEF,#21DEEF);*/
+	background: #fff;
+	z-index: 999;
+	border-radius: 20px;
+	text-align: center;
+	transition: 1s;
+}
+
+.pop-up1 h1 {
+	text-align: center;
+	color: #21DEEF;
+}
+
+#login2 {
+	width: 100%;
+}
+ 
+#login2 div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+}
+#login2 input {
+	width: 298px;
+	height: 43px;
+	margin-left: 20px;
+	margin-top: 20px;
+	text-indent: 10px;
+	font-size: 13px;
+	outline: none;
+}
+
+.checkbox-lab {
+	display: inline-block;
+	font-size: 14px;
+	margin: 20px 23px 0 0;
+}
+#login2 .checkbox {
+	display: inline-block;
+	width: 57px;
+	height: 17px;
+	margin: 0;
+}
+
+.login, .register, .close-it {
+	display: inline-block;
+	width: 108px;
+	line-height: 30px;
+	border: 1px dotted #fff;
+	border-radius: 5px;
+	margin: 45px 0 0;
+	font-size: 14px;
+	cursor: pointer;
+	transition: 1s;
+	color: #fff;
+	background: #21DEEF;
+}
+
+
+.login:hover, .register:hover, .close-it:hover {
+	border: 1px dotted red;
+}
+
+.close-it {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+/* //pop-up1 */
+/* pop-up2 */
+/* 下面这个是设置注册页面，是否出现 */
+.pop-up2 {
+	display: none;
+	position: fixed;
+	top: 120px;
+	left: 320px;
+	width: 859px;
+	height: 561px;
+	/*background: -webkit-linear-gradient(top,#21DEEF,#21DEEF);*/
+	background: #fff;
+	z-index: 999;
+	border-radius: 20px;
+	text-align: center;
+	transition: 1s;
+}
+
+.pop-up2 h1 {
+	text-align: center;
+	color: #21DEEF;
+}
+
+#register2 {
+	position: relative;
+	width: 100%;
+}
+ 
+#register2 div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 50px;
+	font-size: 20px;
+}
+#register2 input {
+	width: 298px;
+	height: 43px;
+	margin-left: 20px;
+	margin-top: 20px;
+	text-indent: 10px;
+	font-size: 13px;
+	outline: none;
+}
+
+/* 下面这个是设置注册页面，错误消息的那个span */
+#register2 span {
+	display: none;
+	position: absolute;
+	color: red;
+	transition: 1s;
+}
+.user-wrg {
+	top: 33px;
+	right: 190px;
+}
+.psd-wrg {
+	top: 160px;
+	right: 160px;
+}
+.email-wrg {
+	top: 225px;
+	right: 176px;
+}

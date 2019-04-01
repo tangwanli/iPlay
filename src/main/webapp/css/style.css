@@ -2874,17 +2874,54 @@ background: url(../images/social.png) no-repeat 0px 0px;
   border: 1px dotted #21DEEF;
 }
 .user-box, .psd-box {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
+.user-box label {
+  position: absolute;
+  font-size: 13px;
+  font-weight: 500;
+}
+.user-box label:nth-of-type(1) {
+  top: 31%;
+  left: 7%;
+}
+.user-box label:nth-of-type(2) {
+  top: 53%;
+  left: 12%;
+}
+.user-box label:nth-of-type(3) {
+  top: 75%;
+  left: 14%;
+}
+.base-box {
+  margin-bottom: 10px;
+}
+.sex-box button,.sec-drop-box {
+  width: 100px;
+  line-height: 1.42857143;
+  font-weight: 400;
+  padding: 3px 20px;
+}
+/*.user-box label:nth-of-type(4) {
+  top: 91%;
+  left: 13%;
+}*/
+/*.base-box {
+  display: flex;
+  height: 500px;
+  flex-direction: column;
+  overflow: hidden;
+}*/
 #register2 .per-email-wrg{
   display: none;
   /*display: inline;*/
 }
 .per-email-wrg {
-  top: 169px;
-  right: 6px;
+  top: 54%;
+  right: 1%;
 }
 /* //个人信息模块 */
 
