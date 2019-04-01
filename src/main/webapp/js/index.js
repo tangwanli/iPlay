@@ -74,6 +74,19 @@ changeSex2();
 
 
 
+    /* 函数去抖 */
+    function debounce(fn){
+      let timer = null
+      return function(...args){
+        if(timer != null) {
+          clearTimeout(timer)
+        }
+        timer = setTimeout(() => {
+          fn.apply(this, args)
+          timer = null
+        }, 300)
+      }
+    }
 
 
     /* 登陆、注册、关闭、注销、用户按钮点击 */
@@ -220,6 +233,7 @@ changeSex2();
             alert('登录成功');
         } else {
             $(popUp1).hide(500);
+            alert('登录失败');
         }
         console.log("登录返回数据为：" + res);
     });
@@ -287,6 +301,7 @@ changeSex2();
                 $(popUp2).hide(500);
                 alert('注册成功');
             } else {
+                alert('注册失败');
             }
         });
     });
@@ -459,7 +474,7 @@ changeSex2();
                                 observer = {
                                     next(res){
                                         console.log(res);
-                                        let rate = res.total.percent + '%';
+                                        let rate = Math.floor(res.total.percent) + '%';
                                         $('.my-pro div')[0].style.width = rate;
                                         $('.my-pro div').text(rate);
                                     },
@@ -468,10 +483,11 @@ changeSex2();
                                     },
                                     complete(res){
                                         console.log(res);
+                                        alert('上传成功');
                                     }
                                 };
                             observable.subscribe(observer);
-                            alert('上传成功');
+                            
                         } else {
                             alert('上传失败');
                         }
@@ -535,12 +551,13 @@ changeSex2();
                     showUserMsg(1);
                     alert('删除成功');
                 } else {
+                    alert('删除失败');
                 }
             });
             console.log(userIdArr);
             });
                 /* 分页操作 */
-            $('.del-user-next').click(function(){
+            $('.del-user-next')[0].onclick = debounce(function(){
                 if (+$('.user-cur-page').text() < +$('.user-all-page').text()) {
                 let prePage = +localStorage.getItem('userMagId');
                     let nowPage = prePage + 1;
@@ -548,7 +565,7 @@ changeSex2();
                     showUserMsg(nowPage);
                 }
             });
-            $('.del-user-up').click(function(){
+            $('.del-user-up')[0].onclick = debounce(function(){
                 if (+$('.user-cur-page').text() > 1) {
                     let prePage = +localStorage.getItem('userMagId');
                     if (prePage > 1) {
@@ -620,11 +637,12 @@ changeSex2();
                         showVdoMsg(1);
                         alert('删除成功');
                     } else {
+                        alert('删除失败');
                     }
                 });
             });
             /* 分页操作 */
-            $('.del-vdo-next').click(function(){
+            $('.del-vdo-next')[0].onclick = debounce(function(){
                 if (+$('.vdo-cur-page').text() < +$('.vdo-all-page').text()) {
                     let prePage = +localStorage.getItem('vdoMagId');
                         let nowPage = prePage + 1;
@@ -632,7 +650,7 @@ changeSex2();
                         showVdoMsg(nowPage);
                 }
             });
-            $('.del-vdo-up').click(function(){
+            $('.del-vdo-up')[0].onclick = debounce(function(){
                 if (+$('.vdo-cur-page').text() > 1) {
                     let prePage = +localStorage.getItem('vdoMagId');
                     if (prePage > 1) {
@@ -702,11 +720,12 @@ changeSex2();
                         showComMsg(1);
                         alert('删除成功');
                     } else {
+                        alert('删除失败');
                     }
                 });
             });
                 /* 分页操作 */
-            $('.del-com-next').click(function(){
+            $('.del-com-next')[0].onclick = debounce(function(){
                 if (+$('.com-cur-page').text() < +$('.com-all-page').text()) {
                 let prePage = +localStorage.getItem('comMagId');
                     let nowPage = prePage + 1;
@@ -714,7 +733,7 @@ changeSex2();
                     showComMsg(nowPage);
                 }
             });
-            $('.del-com-up').click(function(){
+            $('.del-com-up')[0].onclick = debounce(function(){
                 if (+$('.com-cur-page').text() > 1) {
                     let prePage = +localStorage.getItem('comMagId');
                     if (prePage > 1) {
@@ -851,19 +870,7 @@ console.log('进入发表评论之前');
 
            /* subCom.click(subComFun);*/
 
-/* 函数去抖 */
-function debounce(fn){
-  let timer = null
-  return function(...args){
-    if(timer != null) {
-      clearTimeout(timer)
-    }
-    timer = setTimeout(() => {
-      fn.apply(this, args)
-      timer = null
-    }, 300)
-  }
-}
+
 
 
 subCom[0].onclick = debounce(function() {
@@ -886,15 +893,16 @@ subCom[0].onclick = debounce(function() {
                         if(res.msg == 'success') {
                             $('.user-vdo-com').val('');
                             getVdoCom(+localStorage.getItem('vdoId'),1);
+                            alert('发表成功');
                         } else {
+                            alert('发表失败');
                         }
                     });
                 }
             });
 /* 函数去抖 */
 
-
-            $('.cli-next').click(function(){
+            $('.cli-next')[0].onclick = debounce(function(){
                 if (+$('.main-com-cur-page').text() < +$('.main-com-all-page').text()) {
                     let prePage = +localStorage.getItem('vdoComId');
                         let nowPage = prePage + 1;
@@ -903,7 +911,7 @@ subCom[0].onclick = debounce(function() {
                         getVdoCom(vdoId,nowPage);
                 }
             });
-            $('.cli-up').click(function(){
+            $('.cli-up')[0].onclick = debounce(function(){
                 if (+$('.main-com-cur-page').text() > 1) {
                     let prePage = +localStorage.getItem('vdoComId');
                     if (prePage > 1) {
