@@ -549,9 +549,7 @@ changeSex2();
                 if(res.msg == 'success') {
                     $('.user-inf-list').empty();
                     showUserMsg(1);
-                    alert('删除成功');
                 } else {
-                    alert('删除失败');
                 }
             });
             console.log(userIdArr);
@@ -635,9 +633,7 @@ changeSex2();
                     if(res.msg == 'success') {
                         $('.vdo-msg-list').empty();
                         showVdoMsg(1);
-                        alert('删除成功');
                     } else {
-                        alert('删除失败');
                     }
                 });
             });
@@ -718,9 +714,7 @@ changeSex2();
                     if(res.msg == 'success') {
                         $('.com-mag-list').empty();
                         showComMsg(1);
-                        alert('删除成功');
                     } else {
-                        alert('删除失败');
                     }
                 });
             });
