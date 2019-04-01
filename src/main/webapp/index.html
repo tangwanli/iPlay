@@ -257,8 +257,8 @@
 		  <!-- 这个是左边侧边栏上面菜单模块，前面的小图标用的是bootstrap的字体图标，包括后面那个:before都是bootstrap的字体图标的用法 -->
 		  <ul class="nav nav-sidebar left-side-nav">
 			<li class="active"><a href="#" class="home-icon"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
-			<li><a href="#" class="User-icon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User</a></li>
 			<li><a href="#" class="upload-icon"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span>upload</a></li>
+			<li><a href="#" class="User-icon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User</a></li>
 			<li><a href="#" class="upload-icon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>userMag</a></li>
 			<li><a href="#" class="upload-icon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>vdoMag</a></li>
 			<li><a href="#" class="upload-icon"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>comMag</a></li>
@@ -453,51 +453,6 @@
     
 
 
-    <!-- 用户信息模块 -->
-    <div class="user sec">
-	    <div class="user-inf">
-	        <!-- 头像模块 -->
-	    	<div class="user-pic">
-	            <label for="user-pho">
-	    		<img class='u-user-pic' width="200px" height="200px" src="images/c2.jpg">
-	    		</label>
-	    		<input id="user-pho" type="file">
-	    		<span class="change-inf">修改信息</span>
-	    	</div>
-	    	<!-- //头像模块 -->
-	    	<!-- 个人信息模块 -->
-	    	<div class="user-basi-inf">
-			    <div id="register2" class="user-box">
-			        <h3>个人信息</h3>
-		    		<input class="u-user-name" type="text" placeholder="请输入用户名：">
-		    		<br>
-		    		<input class="email-inp u-user-email" type="email" placeholder="请输入email："><span class="per-email-wrg">*email格式不正确</span>
-		    		<br>
-		    		<input class="u-user-sex" type="text" placeholder="请输入性别：">
-		    		<br>
-		    		<input class="u-user-loc" type="text" placeholder="请输入所在地：">
-		    	</div>
-	    	</div>
-	    	<!-- //个人信息模块 -->
-
-	    	<!-- 密码修改模块 -->
-	    	<div class="change-psd">
-			    <div id="register2" class="psd-box">
-			        <h3>修改密码</h3>
-		    		<input class="u-user-pas" type="password" placeholder="请输入密码："><span class="old-psd-wrg">*密码错误</span>
-		    		<br>
-		    		<input class="u-new-pas" type="password" placeholder="请输入新密码：">
-		    		<br>
-		    		<input class="u-new-pas2" type="password" placeholder="请输入再次输入新密码："><span class="psd-wrg2">*输入不一致</span>
-		    	</div>
-	    	</div>
-	    	<!-- //密码修改模块 -->
-	    </div>
-	</div>
-    <!-- //用户信息模块 -->
-
-
-
     <!-- 视频信息上传模块 -->
     <div class="vdo sec">
 	    <div class="vdo-box">
@@ -546,7 +501,8 @@
 			    <div class="vdo-change">
 			        <h3>视频信息修改</h3>
 		    		<input class="vdo-name" type="text" placeholder="请输入修改后的视频名字：">
-		    		<em>注：如果不提供，默认名字为文件名</em>
+		    		<em>Attention：如果不提供，默认名字为文件名</em>
+		    		<em>Attention：请提供文件类型为mp4的视频文件</em>
 		    	</div>
 		    	<div class="progress my-pro">
 				  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
@@ -558,6 +514,64 @@
 	    </div>
 	</div>
     <!-- //视频信息上传模块 -->
+
+
+
+    <!-- 用户信息模块 -->
+    <div class="user sec">
+	    <div class="user-inf">
+	        <!-- 头像模块 -->
+	    	<div class="user-pic">
+	            <label for="user-pho">
+	    		<img class='u-user-pic' width="200px" height="200px" src="images/c2.jpg">
+	    		</label>
+	    		<input id="user-pho" type="file">
+	    		<span class="change-inf">修改信息</span>
+	    	</div>
+	    	<!-- //头像模块 -->
+	    	<!-- 个人信息模块 -->
+	    	<div class="user-basi-inf">
+			    <div id="register2" class="user-box">
+			        <h3>个人信息</h3>
+			        <section class="base-box">
+			    		<label>username: </label><input class="u-user-name" type="text" placeholder="请输入用户名：">
+			    		<br>
+			    		<label>email: </label><input class="email-inp u-user-email" type="email" placeholder="请输入email："><em class="per-email-wrg">*email格式不正确</em>
+			<!--     		<br>
+			    		<label>sex: </label><input class="u-user-sex" type="text" placeholder="请输入性别："> -->
+			    		<br>
+			    		<label>City: </label><input class="u-user-loc" type="text" placeholder="请输入所在地：">
+		    		</section>
+					<section class="sex-box dropdown">
+					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					    man
+					    <span class="caret"></span>
+					  </button>
+					  <ul class="sec-drop-box dropdown-menu" aria-labelledby="dropdownMenu1">
+					    <li><a href="#">woman</a></li>
+					  </ul>
+					</section>
+		    	</div>
+	    	</div>
+	    	<!-- //个人信息模块 -->
+
+	    	<!-- 密码修改模块 -->
+	    	<div class="change-psd">
+			    <div id="register2" class="psd-box">
+			        <h3>修改密码</h3>
+		    		<input class="u-user-pas" type="password" placeholder="请输入密码："><span class="old-psd-wrg">*密码错误</span>
+		    		<br>
+		    		<input class="u-new-pas" type="password" placeholder="请输入新密码：">
+		    		<br>
+		    		<input class="u-new-pas2" type="password" placeholder="请输入再次输入新密码："><span class="psd-wrg2">*输入不一致</span>
+		    	</div>
+	    	</div>
+	    	<!-- //密码修改模块 -->
+	    </div>
+	</div>
+    <!-- //用户信息模块 -->
+
+
 
 
     
@@ -676,7 +690,7 @@
             <div class="user-list">
             <!-- 一组12个信息 -->
 				<div class="list-group user-inf-list">
-				  <a userid="1" href="#" class="list-group-item">Cras justo odio</a>
+<!-- 				  <a userid="1" href="#" class="list-group-item">Cras justo odio</a>
 				  <a userid="2" href="#" class="list-group-item">Dapibus ac facilisis in</a>
 				  <a userid="3" href="#" class="list-group-item">Morbi leo risus</a>
 				  <a userid="4" href="#" class="list-group-item">Porta ac consectetur ac</a>
@@ -687,7 +701,7 @@
 				  <a userid="9" href="#" class="list-group-item">Porta ac consectetur ac</a>
 				  <a userid="10" href="#" class="list-group-item">Vestibulum at eros</a>
 				  <a userid="11" href="#" class="list-group-item">Morbi leo risus</a>
-				  <a userid="12" href="#" class="list-group-item">Porta ac consectetur ac</a>
+				  <a userid="12" href="#" class="list-group-item">Porta ac consectetur ac</a> -->
 				</div>
 			</div>
 			<!-- 三个按钮 -->
@@ -798,17 +812,28 @@
     	<h1>register</h1>
     	<div id="register2">
     	<!-- 这里密码两次输入不相同需要提示，用户名在数据库已经存在也要提示，email格式不正确也要提示 -->
-    		<input class="reg-user-name" type="text" placeholder="请输入用户名："><span class="user-wrg">*用户名已存在</span>
-    		<br>
-    		<input class="reg-user-pas" type="password" placeholder="请输入密码：">
-    		<br>
-    		<input class="reg-confirm-pas" type="password" placeholder="请再次输入密码："><span class="psd-wrg">*两次密码输入不相同</span>
-    		<br>
-    		<input class="email-inp reg-email" type="email" placeholder="请输入email："><span class="email-wrg">*email格式不正确</span>
-    		<br>
-    		<input class="reg-sex" type="text" placeholder="请输入性别：">
-    		<br>
-    		<input class="reg-location" type="text" placeholder="请输入所在地：">
+    	    <section class="base-box2">
+	    		<input class="reg-user-name" type="text" placeholder="请输入用户名："><em class="user-wrg">*用户名已存在</em>
+	    		<br>
+	    		<input class="reg-user-pas" type="password" placeholder="请输入密码：">
+	    		<br>
+	    		<input class="reg-confirm-pas" type="password" placeholder="请再次输入密码："><em class="psd-wrg">*两次密码输入不相同</em>
+	    		<br>
+	    		<input class="email-inp reg-email" type="email" placeholder="请输入email："><em class="email-wrg">*email格式不正确</em>
+	    		<br>
+	    		<!-- <input class="reg-sex" type="text" placeholder="请输入性别：">
+	    		<br> -->
+	    		<input class="reg-location" type="text" placeholder="请输入所在地：">
+    		</section>
+			<section class="sex-box2 dropdown">
+			  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			    man
+			    <span class="caret"></span>
+			  </button>
+			  <ul class="sec-drop-box2 dropdown-menu" aria-labelledby="dropdownMenu1">
+			    <li><a href="#">woman</a></li>
+			  </ul>
+			</section>
     	</div>
     	<span class="register-now register register2">
     		register
