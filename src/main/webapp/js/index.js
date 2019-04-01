@@ -11,10 +11,10 @@ $(function(){
     localStorage.setItem('vdoComId','1');
 
 
-    $('.left-side-nav li:nth-of-type(3)').css('display','none');
+/*    $('.left-side-nav li:nth-of-type(3)').css('display','none');
     $('.left-side-nav li:nth-of-type(4)').css('display','none');
     $('.left-side-nav li:nth-of-type(5)').css('display','none');
-    $('.left-side-nav li:nth-of-type(6)').css('display','none');
+    $('.left-side-nav li:nth-of-type(6)').css('display','none');*/
 
     /* 把时间戳转换为本地时间 */
     function getLocalTime(nS) {     
@@ -71,37 +71,6 @@ changeSex2();
         }
     }
     /* //切换背景颜色 */
-
-
-    /* 获取个人信息，然后把信息填入页面,用户密码是存入localstorage里面的 */
-    function showPerMsg() {
-        $.post('getUserById',{
-            id: +localStorage.getItem('userId')
-        }, function(res) {
-        let uUserName = $('.u-user-name'),
-        uUserEmail = $('.u-user-email'),
-       // 性别 uUserSex = $('.u-user-sex'),
-        uUserLoc = $('.u-user-loc'),
-        uUserPic = $('.u-user-pic');
-        
-        localStorage.setItem('userPassword',res.data.User.userPassword);
-        localStorage.setItem('userPhoto',res.data.User.userPhoto);
-        
-        uUserName.val(res.data.User.userName);
-        uUserEmail.val(res.data.User.userEmail);
-        uUserLoc.val(res.data.User.userCity);
-        uUserPic.attr('src',res.data.User.userPhoto);
-        if (res.data.User.userSex) {
-            $('.sex-box button').text('woman');
-            $('.sec-drop-box li a').text('man');
-        } else {
-            $('.sex-box button').text('man');
-            $('.sec-drop-box li a').text('woman');
-        }
-        });
-        
-    }
-    /* //获取个人信息，然后把信息填入页面 */
 
 
 
@@ -248,6 +217,7 @@ changeSex2();
                 $('.left-side-nav li:nth-of-type(5)').css('display','none');
                 $('.left-side-nav li:nth-of-type(6)').css('display','none');
             }
+            alert('登录成功');
         } else {
             $(popUp1).hide(500);
         }
@@ -315,11 +285,47 @@ changeSex2();
         }, function(data){
             if (data.msg == 'success') {
                 $(popUp2).hide(500);
+                alert('注册成功');
             } else {
             }
         });
     });
     /* //注册模块 */
+
+
+
+    /* 获取个人信息，然后把信息填入页面,用户密码是存入localstorage里面的 */
+    function showPerMsg() {
+        $('.u-user-pas').val('');
+        $('.u-new-pas').val('');
+        $('.u-new-pas2').val('');
+        $.post('getUserById',{
+            id: +localStorage.getItem('userId')
+        }, function(res) {
+        let uUserName = $('.u-user-name'),
+        uUserEmail = $('.u-user-email'),
+       // 性别 uUserSex = $('.u-user-sex'),
+        uUserLoc = $('.u-user-loc'),
+        uUserPic = $('.u-user-pic');
+        
+        localStorage.setItem('userPassword',res.data.User.userPassword);
+        localStorage.setItem('userPhoto',res.data.User.userPhoto);
+        
+        uUserName.val(res.data.User.userName);
+        uUserEmail.val(res.data.User.userEmail);
+        uUserLoc.val(res.data.User.userCity);
+        uUserPic.attr('src',res.data.User.userPhoto);
+        if (res.data.User.userSex) {
+            $('.sex-box button').text('woman');
+            $('.sec-drop-box li a').text('man');
+        } else {
+            $('.sex-box button').text('man');
+            $('.sec-drop-box li a').text('woman');
+        }
+        });
+        
+    }
+    /* //获取个人信息，然后把信息填入页面 */
 
 
 
@@ -383,7 +389,10 @@ changeSex2();
             userPhoto: localStorage.getItem('userPhoto')
         }, function(res) {
             if (res.msg == 'success') {
+                alert('修改成功');
+                showPerMsg();
             } else {
+                alert('修改失败');
             }
         });
     });
@@ -462,8 +471,9 @@ changeSex2();
                                     }
                                 };
                             observable.subscribe(observer);
-                            
+                            alert('上传成功');
                         } else {
+                            alert('上传失败');
                         }
                     });
 
@@ -475,7 +485,6 @@ changeSex2();
 
 
 
-
     /* 显示用户管理模块的信息 */
     function showUserMsg(page) {
         $('.user-inf-list').empty();
@@ -483,9 +492,16 @@ changeSex2();
         $.post('getAlluser',{
             pageNum: page
         },function(res){
+            $('.user-inf-list').empty();
             let list = res.list,
                 len = list.length,
-                userList = $('.user-inf-list');
+                userList = $('.user-inf-list'),
+                thePageNum = res.pageNum, // 当前页
+                pages = res.pages; // 总共的页数
+                 
+            $('.user-cur-page').text(thePageNum);
+            $('.user-all-page').text(pages);
+                
                 console.log('首先再来看看返回的东西res：',res);
             for (let i=0;i<len;i++) {
                 let user = list[i].userName,
@@ -493,7 +509,6 @@ changeSex2();
                     /* 根据userid来删 */
                 let str = `<a userid="` + userId + `" href="#" class="list-group-item">`+ user +`</a>`;
                 userList.append(str);
-
             }
             /* 用户信息管理模块 */
             let uInfEls = $('.user-inf-list').find('a'),
@@ -518,6 +533,7 @@ changeSex2();
                 if(res.msg == 'success') {
                     $('.user-inf-list').empty();
                     showUserMsg(1);
+                    alert('删除成功');
                 } else {
                 }
             });
@@ -525,18 +541,22 @@ changeSex2();
             });
                 /* 分页操作 */
             $('.del-user-next').click(function(){
+                if (+$('.user-cur-page').text() < +$('.user-all-page').text()) {
                 let prePage = +localStorage.getItem('userMagId');
                     let nowPage = prePage + 1;
                     localStorage.setItem('userMagId',nowPage);
                     showUserMsg(nowPage);
+                }
             });
             $('.del-user-up').click(function(){
-                let prePage = +localStorage.getItem('userMagId');
-                if (prePage > 1) {
-                    let nowPage = prePage - 1;
-                    localStorage.setItem('userMagId',nowPage);
-                    showUserMsg(nowPage);
-                } 
+                if (+$('.user-cur-page').text() > 1) {
+                    let prePage = +localStorage.getItem('userMagId');
+                    if (prePage > 1) {
+                        let nowPage = prePage - 1;
+                        localStorage.setItem('userMagId',nowPage);
+                        showUserMsg(nowPage);
+                    } 
+                }
             });
             /* //用户信息管理模块 */
         });
@@ -556,9 +576,17 @@ changeSex2();
             pageNum: page
         },function(res){
             console.log('进入showVdoMsg,并且res为 ',res);
-            let list = res.data.Video,
+            $('.vdo-msg-list').empty();
+            let list = res.data.pageInfo.list,
                 len = list.length,
-                vMsgList = $('.vdo-msg-list');
+                vMsgList = $('.vdo-msg-list'),
+                thePageNum = res.data.pageInfo.pageNum, // 当前页
+                pages = res.data.pageInfo.pages; // 所有页
+
+            $('.vdo-cur-page').text(thePageNum);
+            $('.vdo-all-page').text(pages);
+
+
             for (let i=0;i<len;i++) {
                 let vdoTitle = list[i].videoTitle,
                     /*vdoUrl = list[i].videoUrl,*/
@@ -590,24 +618,29 @@ changeSex2();
                     if(res.msg == 'success') {
                         $('.vdo-msg-list').empty();
                         showVdoMsg(1);
+                        alert('删除成功');
                     } else {
                     }
                 });
             });
             /* 分页操作 */
             $('.del-vdo-next').click(function(){
-                let prePage = +localStorage.getItem('vdoMagId');
-                    let nowPage = prePage + 1;
-                    localStorage.setItem('vdoMagId',nowPage);
-                    showVdoMsg(nowPage);
+                if (+$('.vdo-cur-page').text() < +$('.vdo-all-page').text()) {
+                    let prePage = +localStorage.getItem('vdoMagId');
+                        let nowPage = prePage + 1;
+                        localStorage.setItem('vdoMagId',nowPage);
+                        showVdoMsg(nowPage);
+                }
             });
             $('.del-vdo-up').click(function(){
-                let prePage = +localStorage.getItem('vdoMagId');
-                if (prePage > 1) {
-                    let nowPage = prePage - 1;
-                    localStorage.setItem('vdoMagId',nowPage);
-                    showVdoMsg(nowPage);
-                } 
+                if (+$('.vdo-cur-page').text() > 1) {
+                    let prePage = +localStorage.getItem('vdoMagId');
+                    if (prePage > 1) {
+                        let nowPage = prePage - 1;
+                        localStorage.setItem('vdoMagId',nowPage);
+                        showVdoMsg(nowPage);
+                    } 
+                }
             });
             /* //视频管理模块 */
         });
@@ -628,7 +661,13 @@ changeSex2();
             $('.com-mag-list').empty();
             let list = res.data.pageInfo.list,
                 len = list.length,
-                cMagList = $('.com-mag-list');
+                cMagList = $('.com-mag-list'),
+                thePageNum = res.data.pageInfo.pageNum, // 当前页
+                pages = res.data.pageInfo.pages; // 所有页
+
+            $('.com-cur-page').text(thePageNum);
+            $('.com-all-page').text(pages);
+
             for (let i=0;i<len;i++) {
                 let content = list[i].content,
                     userName = list[i].userName,
@@ -661,24 +700,29 @@ changeSex2();
                     if(res.msg == 'success') {
                         $('.com-mag-list').empty();
                         showComMsg(1);
+                        alert('删除成功');
                     } else {
                     }
                 });
             });
                 /* 分页操作 */
             $('.del-com-next').click(function(){
+                if (+$('.com-cur-page').text() < +$('.com-all-page').text()) {
                 let prePage = +localStorage.getItem('comMagId');
                     let nowPage = prePage + 1;
                     localStorage.setItem('comMagId',nowPage);
                     showComMsg(nowPage);
+                }
             });
             $('.del-com-up').click(function(){
-                let prePage = +localStorage.getItem('comMagId');
-                if (prePage > 1) {
-                    let nowPage = prePage - 1;
-                    localStorage.setItem('comMagId',nowPage);
-                    showComMsg(nowPage);
-                } 
+                if (+$('.com-cur-page').text() > 1) {
+                    let prePage = +localStorage.getItem('comMagId');
+                    if (prePage > 1) {
+                        let nowPage = prePage - 1;
+                        localStorage.setItem('comMagId',nowPage);
+                        showComMsg(nowPage);
+                    } 
+                }
             });
             /* //评论模块 */
         });
@@ -688,6 +732,7 @@ changeSex2();
 
 
 
+/* 主评论模块获取评论 */
 function getVdoCom(id,page) {
     $('.the-all-com').empty();
     console.log('进入获取评论这里了没有');
@@ -696,11 +741,17 @@ function getVdoCom(id,page) {
         videoId: id,
         pageNum: page
     },function(res) {
+        $('.the-all-com').empty();
         console.log('获取的服务器返回是：',res);
         if(res.msg == 'success') {
             let allCom = res.data.pageInfo.list,
                 len = allCom.length,
-                theAllCom = $('.the-all-com');
+                theAllCom = $('.the-all-com'),
+                thePageNum = res.data.pageInfo.pageNum, // 当前页
+                pages = res.data.pageInfo.pages; // 所有页
+
+            $('.main-com-cur-page').text(thePageNum);
+            $('.main-com-all-page').text(pages);
 
             for (let i=0;i<len;i++) {
 
@@ -722,13 +773,14 @@ function getVdoCom(id,page) {
         }
     });
 }
+/* //主评论模块获取评论 */
 
 
 
 
     /* 显示主体模块的信息 */
     function showHome() {
-        $.post('getAllVideoInfo',{},function(res){
+        $.post('getAllVideoUrl',{},function(res){
             let allHotVdo = res.data.Video,
                 len = allHotVdo.length,
                 hotVdo = $('.hot-vdo');
@@ -843,20 +895,24 @@ subCom[0].onclick = debounce(function() {
 
 
             $('.cli-next').click(function(){
-                let prePage = +localStorage.getItem('vdoComId');
-                    let nowPage = prePage + 1;
-                    localStorage.setItem('vdoComId',nowPage);
-                    let vdoId = +localStorage.getItem('vdoId');
-                    getVdoCom(vdoId,nowPage);
+                if (+$('.main-com-cur-page').text() < +$('.main-com-all-page').text()) {
+                    let prePage = +localStorage.getItem('vdoComId');
+                        let nowPage = prePage + 1;
+                        localStorage.setItem('vdoComId',nowPage);
+                        let vdoId = +localStorage.getItem('vdoId');
+                        getVdoCom(vdoId,nowPage);
+                }
             });
             $('.cli-up').click(function(){
-                let prePage = +localStorage.getItem('vdoComId');
-                if (prePage > 1) {
-                    let nowPage = prePage - 1;
-                    localStorage.setItem('vdoComId',nowPage);
-                    let vdoId = +localStorage.getItem('vdoId');
-                    getVdoCom(vdoId,nowPage);
-                } 
+                if (+$('.main-com-cur-page').text() > 1) {
+                    let prePage = +localStorage.getItem('vdoComId');
+                    if (prePage > 1) {
+                        let nowPage = prePage - 1;
+                        localStorage.setItem('vdoComId',nowPage);
+                        let vdoId = +localStorage.getItem('vdoId');
+                        getVdoCom(vdoId,nowPage);
+                    } 
+                }
             });
             /* //主体模块,主评论模块 */
         });
