@@ -9,6 +9,7 @@ $(function(){
     localStorage.setItem('userMagId','1');
     localStorage.setItem('comMagId','1');
     localStorage.setItem('vdoComId','1');
+    sessionStorage.setItem('checkLogin','0');
 
 
     $('.left-side-nav li:nth-of-type(3)').css('display','none');
@@ -123,6 +124,8 @@ changeSex2();
         showPerMsg();
     });
     $('.log-off-btn').click(function() {
+        sessionStorage.setItem('checkLogin','0');
+        localStorage.setItem('userId','-1');
         $('.user-name-btn').hide();
         $('.log-off-btn').hide();
         $('.register-btn').show();
@@ -203,6 +206,7 @@ changeSex2();
         userPassword: logUserPas.val()
     }, function(res) {
         if (res.msg == 'success') {
+            sessionStorage.setItem('checkLogin','1');
             if ($('.checkbox').is(':checked')){
                 localStorage.setItem('stoUserName',logUserName.val());
             }
@@ -462,7 +466,8 @@ changeSex2();
         let file = videoFile[0],
             key = vdoName ? vdoName : videoFile[0].name;
        // token = `1AkEJ34HwNKA6oRflx6yeO6okys3NYHF4qilLY5N:I1LU2DNOdsVqEBvRkZo3Ofmp_sY=:eyJzY29wZSI6ImlwbGF5IiwicmV0dXJuQm9keSI6IntcImtleVwiOlwiJChrZXkpXCIsXCJoYXNoXCI6XCIkKGV0YWcpXCIsXCJidWNrZXRcIjpcIiQoYnVja2V0KVwiLFwiZnNpemVcIjokKGZzaXplKX0iLCJkZWFkbGluZSI6MTU1Mzk0MDcyMn0=`;
-      
+      console.log(sessionStorage.getItem('checkLogin'));
+      if (sessionStorage.getItem('checkLogin') != "0"){
       $.post('uploadFile',{
                         videoTitle: key,
                         videoUserId: localStorage.getItem('userId'),
@@ -473,7 +478,6 @@ changeSex2();
                             let observable = qiniu.upload(file,key,token),
                                 observer = {
                                     next(res){
-                                        console.log(res);
                                         let rate = Math.floor(res.total.percent) + '%';
                                         $('.my-pro div')[0].style.width = rate;
                                         $('.my-pro div').text(rate);
@@ -492,6 +496,9 @@ changeSex2();
                             alert('上传失败');
                         }
                     });
+        } else {
+            alert('请先登录');
+        }
 
 
         
