@@ -49,7 +49,8 @@ public class UserService {
     //修改一条用户数据
     public boolean update(User user) {
         System.out.println(user.toString());
-        if (userMapper.updateByPrimaryKeySelective(user) == 1) {
+        if (userMapper.updateByPrimaryKeySelective(user) == 1
+                ) {
             return true;
         } else {
             return false;

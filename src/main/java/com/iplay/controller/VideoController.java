@@ -33,6 +33,11 @@ public class VideoController {
         for (int i = 0; i < videos.size(); i++) {
             videos.get(i).setVideoPosterUrl(videoService.getVideoImageUrl(videos.get(i).getVideoTitle()));
         }
+        for (int i = 0; i <videos.size() ; i++) {
+            System.out.println(videos.get(i).getVideoUrl());
+            System.out.println(videos.get(i).getVideoPosterUrl());
+
+        }
         return Msg.success().add("Video", videos);
     }
 
@@ -88,7 +93,6 @@ public class VideoController {
                 return  Msg.fail();
         }
         return Msg.success();
-
 
     }
     //修改视频信息

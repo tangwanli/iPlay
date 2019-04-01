@@ -33,20 +33,21 @@ public class CommentController {
     @RequestMapping(value = "/subCommit",method = RequestMethod.POST)
     @ResponseBody
     //传人参数 video_id context userId
-    public boolean add(Comment comment) {
+    public Msg add(Comment comment) {
         if (commentService.add(comment)) {
-            return true;
+            return Msg.success();
         } else {
-            return false;
+            return Msg.fail();
         }
     }
 
     //根据video_id 获取评论 分页
     @RequestMapping(value = "/getCommentByVideoId",method = RequestMethod.POST)
     @ResponseBody
-    public PageInfo<Comment> getCommentById(Integer videoId, Integer pageNum){
+    public Msg getCommentById(Integer videoId, Integer pageNum){
        PageInfo pageInfo= commentService.getCommentById(videoId,pageNum);
-        return pageInfo;
+        
+        return Msg.success().add("pageInfo",pageInfo);
     }
     //获取所有评论 分页
     @RequestMapping(value = "/getAllComment",method = RequestMethod.POST)

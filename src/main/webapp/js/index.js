@@ -43,6 +43,7 @@ $(function(){
 
     /* 切换背景颜色 */
     function changeBg(el) {
+        console.log('进入背景颜色切换');
         let background = $(el).css('background');
         console.log(background);
         if (el.style.background == 'red') {
@@ -56,7 +57,8 @@ $(function(){
 
     /* 显示用户管理模块的信息 */
     function showUserMsg(page) {
-        $('.user-inf-list').empty();
+        console.log('进入用户管理文件');
+        //$('.user-inf-list').empty();
         $.post('getAlluser',{
             pageNum: page
         },function(res){
@@ -67,8 +69,8 @@ $(function(){
                 let user = list[i].userName,
                     userId = list[i].userId;
                     /* 根据userid来删 */
-                let str = `<a userid="` + 1 + `" href="#" class="list-group-item">`+ user +`</a>`;
-                userList.append(str);
+               // let str = `<a userid="` + 1 + `" href="#" class="list-group-item">`+ user +`</a>`;
+               // userList.append(str);
             }
         });
     }
@@ -76,7 +78,7 @@ $(function(){
 
     /* 显示视频管理模块的信息 */
     function showVdoMsg(page) {
-        $('.vdo-msg-list').empty();
+      //  $('.vdo-msg-list').empty();
         $.post('getAllVideoInfo',{
             pageNum: page
         },function(res){
@@ -123,6 +125,7 @@ $(function(){
             let allHotVdo = res.data.Video,
                 len = allHotVdo.length,
                 hotVdo = $('.hot-vdo');
+
             $('.hot-vdo').empty();
             $('.vdo-title').text('HOT Videos');
             for (let i=0;i<len;i++) {
@@ -509,7 +512,9 @@ $(function(){
     let uInfList = $('.user-inf-list'),
         uInfEls = uInfList.find('a'),
         delUser = $('.del-user');
+    console.log('获取的列表是',uInfEls);
     uInfEls.click(function() {
+        console.log('进入点击，有反应');
         changeBg(this);
     })
     delUser.click(function(){
@@ -689,10 +694,14 @@ function getVdoCom(id,page) {
         }
     });
 }
+
     /* 主体模块,主评论模块 */
     let urlEl = $('.hot-vdo-box a');
     /* 跳转与信息操作 */
+    console.log('进入跳转之前');
+
     urlEl.click(function() {
+        console.log('进入跳转');
         let url = $(this).attr('vdourl'),
             vdoId = $(this).attr('vdoid'),
             title = $(this).parent().parent().find('a[class^=title]').text();

@@ -36,6 +36,7 @@ public class CommentService {
      public PageInfo<Comment> getCommentById(Integer vid,Integer pageNum){
         PageHelper.startPage(pageNum,7);
         CommentExample example=new CommentExample();
+        example.setOrderByClause("publish_time");
         CommentExample.Criteria criteria=example.createCriteria();
         criteria.andVideoIdEqualTo(vid);
         List<Comment> comments = commentMapper.selectByExample(example);

@@ -80,12 +80,33 @@ public class UserController {
     @RequestMapping(value = "/getUserById",method = RequestMethod.POST)
     @ResponseBody
     public Msg getuser(Integer id) {
+
         return Msg.success().add("User",userService.getUserbyID(id));
     }
     //修改用户
     @RequestMapping(value = "/updateUser",method = RequestMethod.POST)
     @ResponseBody
     public Msg update( User user) {
+        if(user.getUserPassword().equals("")){
+            user.setUserPassword(null);
+        }
+        if(user.getUserName().equals("")){
+            user.setUserName(null);
+        }
+        if(user.getUserRole().equals("")){
+            user.setUserRole(null);
+        }
+        if(user.getUserPhoto().equals("")){
+            user.setUserPhoto(null);
+        }
+        if(user.getUserCity().equals("")){
+            user.setUserCity(null);
+        }if(user.getUserEmail().equals("")){
+            user.setUserEmail(null);
+        }if(user.getUserSex().equals("")){
+            user.setUserSex(null);
+        }
+
         if(userService.update(user))
             return Msg.success();
         else
